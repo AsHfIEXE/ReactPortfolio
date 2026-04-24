@@ -57,7 +57,7 @@ const Navbar = () => {
           </div>
 
           <div className="nav-actions">
-            <a href="#contact" className="btn btn-primary nav-hire-btn" style={{ padding: '8px 16px', fontSize: '0.8rem' }}>
+            <a href="#contact" className="btn btn-primary nav-hire-btn" style={{ padding: '10px 20px', fontSize: '0.9rem' }}>
               <span style={{ marginRight: '6px' }}>⚡</span> Hire Me
             </a>
             <button className={`mobile-toggle ${isOpen ? 'active' : ''}`} onClick={() => setIsOpen(!isOpen)} aria-label="Toggle Menu">
