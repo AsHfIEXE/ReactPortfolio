@@ -14,15 +14,39 @@ const Contact = () => {
     "Other"
   ];
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setFormState('submitting');
 
-    // Simulate network request
-    setTimeout(() => {
-      setFormState('success');
-      // TODO: Replace with actual endpoint (EmailJS, Formspree, etc.)
-    }, 1500);
+    // Extract form data
+    const formData = new FormData(e.target);
+    
+    // Securely loaded from .env file so it is not exposed in GitHub source code
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+    if (!accessKey) {
+      console.error("Missing VITE_WEB3FORMS_ACCESS_KEY in .env file");
+    }
+    formData.append("access_key", accessKey);
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setFormState('success');
+      } else {
+        console.error("Error submitting form", data);
+        setFormState('idle');
+        alert("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error("Network error:", error);
+      setFormState('idle');
+      alert("Network error. Please try again later.");
+    }
   };
 
   return (
@@ -75,8 +99,8 @@ const Contact = () => {
               </div>
             ) : (
               <form className="contact-form glass-card" style={{ padding: '2rem' }} onSubmit={handleSubmit}>
-                <input type="text" className="form-input" placeholder="Your Name" required />
-                <input type="email" className="form-input" placeholder="Your Email" required />
+                <input type="text" name="name" className="form-input" placeholder="Your Name" required />
+                <input type="email" name="email" className="form-input" placeholder="Your Email" required />
                 
                 <div className="custom-select-container" style={{ position: 'relative' }}>
                   <div 
@@ -109,7 +133,7 @@ const Contact = () => {
                 </div>
                 <input type="hidden" name="service" value={selectedService} required />
 
-                <textarea className="form-textarea" placeholder="Tell me about your project..." required></textarea>
+                <textarea name="message" className="form-textarea" placeholder="Tell me about your project..." required></textarea>
                 <button type="submit" className={`btn btn-primary ${formState === 'submitting' ? 'glitch active' : ''}`} disabled={formState === 'submitting'}>
                   {formState === 'submitting' ? 'Sending...' : 'Send Message →'}
                 </button>
