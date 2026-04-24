@@ -82,7 +82,20 @@ const Hero = () => {
       particles.push(new Particle());
     }
     
+    let animationFrameId;
+    let isVisible = true;
+
+    const observer = new IntersectionObserver(([entry]) => {
+      isVisible = entry.isIntersecting;
+      if (isVisible) {
+        animate();
+      }
+    }, { threshold: 0 });
+    observer.observe(canvas);
+
     const animate = () => {
+      if (!isVisible) return; // Stop burning CPU when out of viewport
+
       ctx.clearRect(0, 0, width, height);
       
       for (let i = 0; i < particles.length; i++) {
@@ -105,7 +118,7 @@ const Hero = () => {
           }
         }
       }
-      requestAnimationFrame(animate);
+      animationFrameId = requestAnimationFrame(animate);
     };
     
     animate();
@@ -119,6 +132,8 @@ const Hero = () => {
     return () => {
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('mousemove', handleMouseMove);
+      cancelAnimationFrame(animationFrameId);
+      observer.disconnect();
     };
   }, []);
 

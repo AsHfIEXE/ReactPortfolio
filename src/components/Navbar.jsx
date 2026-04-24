@@ -16,23 +16,32 @@ const Navbar = () => {
   ];
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+    let ticking = false;
 
-      // Simple active section detection
-      const sections = navLinks.map(link => document.getElementById(link.id)).filter(Boolean);
-      let current = '';
-      
-      for (const section of sections) {
-        const sectionTop = section.offsetTop;
-        if (window.scrollY >= sectionTop - 150) {
-          current = section.getAttribute('id');
-        }
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 50);
+
+          // Simple active section detection
+          const sections = navLinks.map(link => document.getElementById(link.id)).filter(Boolean);
+          let current = '';
+          
+          for (const section of sections) {
+            const sectionTop = section.offsetTop;
+            if (window.scrollY >= sectionTop - 150) {
+              current = section.getAttribute('id');
+            }
+          }
+          if (current) setActiveSection(current);
+          
+          ticking = false;
+        });
+        ticking = true;
       }
-      if (current) setActiveSection(current);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 

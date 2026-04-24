@@ -31,14 +31,21 @@ function App() {
     revealElements.forEach(el => observer.observe(el));
 
     // Scroll listener for CTA
+    let ticking = false;
     const handleScroll = () => {
-      if (window.scrollY > 300) {
-        setShowFloatingCTA(true);
-      } else {
-        setShowFloatingCTA(false);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          if (window.scrollY > 300) {
+            setShowFloatingCTA(true);
+          } else {
+            setShowFloatingCTA(false);
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
       revealElements.forEach(el => observer.unobserve(el));
