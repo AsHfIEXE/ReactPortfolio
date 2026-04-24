@@ -58,7 +58,11 @@ const Navbar = () => {
 
           <div className="nav-actions">
             <a href="#contact" className="btn btn-primary nav-hire-btn" style={{ padding: '10px 20px', fontSize: '0.9rem' }}>
-              <span style={{ marginRight: '6px' }}>⚡</span> Hire Me
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: '16px', height: '16px', marginRight: '6px' }}>
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+              Hire Me
             </a>
             <button className={`mobile-toggle ${isOpen ? 'active' : ''}`} onClick={() => setIsOpen(!isOpen)} aria-label="Toggle Menu">
               <span></span>
@@ -87,7 +91,11 @@ const Navbar = () => {
             </a>
           ))}
           <a href="#contact" className="btn btn-primary" style={{ marginTop: '2rem', width: '100%' }} onClick={() => setIsOpen(false)}>
-            ⚡ Initiate Contact
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: '20px', height: '20px', marginRight: '8px' }}>
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+            Initiate Contact
           </a>
         </div>
       </div>
