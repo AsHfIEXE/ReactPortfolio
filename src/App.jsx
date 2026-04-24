@@ -82,11 +82,21 @@ function App() {
 
   return (
     <>
-      {loading && (
-        <div className={`terminal-loader ${!loading ? 'hidden' : ''}`}>
-          <pre>{loadText}</pre>
+      <div className={`terminal-loader ${!loading ? 'hidden' : ''}`}>
+        <div className="terminal-window">
+          <div className="terminal-header">
+            <span className="dot red"></span>
+            <span className="dot yellow"></span>
+            <span className="dot green"></span>
+          </div>
+          <div className="terminal-body">
+            <pre>
+              {loadText}
+              <span className="cursor-blink">█</span>
+            </pre>
+          </div>
         </div>
-      )}
+      </div>
 
       <CustomCursor />
       <div className="noise-overlay"></div>
