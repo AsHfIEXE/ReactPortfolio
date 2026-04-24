@@ -2,6 +2,17 @@ import { useState } from 'react';
 
 const Contact = () => {
   const [formState, setFormState] = useState('idle'); // idle, submitting, success
+  const [isSelectOpen, setIsSelectOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState('');
+
+  const services = [
+    "Penetration Testing",
+    "Web3 / Smart Contract Audit",
+    "Full-Stack Development",
+    "Bug Bounty Collaboration",
+    "Book / Writing Consultation",
+    "Other"
+  ];
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -66,15 +77,38 @@ const Contact = () => {
               <form className="contact-form glass-card" style={{ padding: '2rem' }} onSubmit={handleSubmit}>
                 <input type="text" className="form-input" placeholder="Your Name" required />
                 <input type="email" className="form-input" placeholder="Your Email" required />
-                <select className="form-select" required defaultValue="">
-                  <option value="" disabled>Select Service Needed</option>
-                  <option>Penetration Testing</option>
-                  <option>Web3 / Smart Contract Audit</option>
-                  <option>Full-Stack Development</option>
-                  <option>Bug Bounty Collaboration</option>
-                  <option>Book / Writing Consultation</option>
-                  <option>Other</option>
-                </select>
+                
+                <div className="custom-select-container" style={{ position: 'relative' }}>
+                  <div 
+                    className={`form-input custom-select-trigger ${isSelectOpen ? 'open' : ''}`}
+                    onClick={() => setIsSelectOpen(!isSelectOpen)}
+                    style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', cursor: 'pointer' }}
+                  >
+                    <span style={{ color: selectedService ? '#fff' : 'rgba(255, 255, 255, 0.6)' }}>
+                      {selectedService || 'Select Service Needed'}
+                    </span>
+                    <svg width="12" height="8" viewBox="0 0 12 8" fill="none" style={{ transform: isSelectOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s ease' }}>
+                      <path d="M1 1.5L6 6.5L11 1.5" stroke="var(--neon-green)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                  
+                  <div className={`custom-select-dropdown ${isSelectOpen ? 'show' : ''}`}>
+                    {services.map(service => (
+                      <div 
+                        key={service} 
+                        className={`custom-select-option ${selectedService === service ? 'selected' : ''}`}
+                        onClick={() => {
+                          setSelectedService(service);
+                          setIsSelectOpen(false);
+                        }}
+                      >
+                        {service}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <input type="hidden" name="service" value={selectedService} required />
+
                 <textarea className="form-textarea" placeholder="Tell me about your project..." required></textarea>
                 <button type="submit" className={`btn btn-primary ${formState === 'submitting' ? 'glitch active' : ''}`} disabled={formState === 'submitting'}>
                   {formState === 'submitting' ? 'Sending...' : 'Send Message →'}

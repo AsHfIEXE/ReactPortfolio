@@ -105,12 +105,18 @@ const DynamicStats = () => {
             </div>
             
             <div className="gh-perfect-container">
-              <img 
-                src="https://ghchart.rshah.org/00d4ff/AsHfIEXE" 
-                alt="GitHub contributions graph" 
-                className="gh-perfect-img" 
-                loading="lazy"
-              />
+              <picture>
+                <source 
+                  media="(max-width: 600px)" 
+                  srcSet="https://github-readme-stats.vercel.app/api?username=AsHfIEXE&show_icons=true&hide_border=true&bg_color=00000000&title_color=00d4ff&icon_color=00d4ff&text_color=94a3b8" 
+                />
+                <img 
+                  src="https://ghchart.rshah.org/00d4ff/AsHfIEXE" 
+                  alt="GitHub contributions graph" 
+                  className="gh-perfect-img" 
+                  loading="lazy"
+                />
+              </picture>
             </div>
             
             <div className="gh-perfect-meta">

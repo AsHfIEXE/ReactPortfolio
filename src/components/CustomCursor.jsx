@@ -53,6 +53,23 @@ const CustomCursor = () => {
     document.addEventListener('mouseover', handleMouseOver);
     document.addEventListener('mouseout', handleMouseOut);
     
+    // Mobile Touch Pulse Alternative
+    const handleTouchStart = (e) => {
+      const touch = e.touches[0];
+      const pulse = document.createElement('div');
+      pulse.className = 'touch-pulse';
+      pulse.style.left = `${touch.clientX}px`;
+      pulse.style.top = `${touch.clientY}px`;
+      
+      document.body.appendChild(pulse);
+      
+      setTimeout(() => {
+        pulse.remove();
+      }, 600);
+    };
+    
+    window.addEventListener('touchstart', handleTouchStart, { passive: true });
+
     // Start loop
     requestAnimationFrame(render);
     
@@ -60,6 +77,7 @@ const CustomCursor = () => {
       window.removeEventListener('mousemove', onMouseMove);
       document.removeEventListener('mouseover', handleMouseOver);
       document.removeEventListener('mouseout', handleMouseOut);
+      window.removeEventListener('touchstart', handleTouchStart);
     };
   }, []);
 
