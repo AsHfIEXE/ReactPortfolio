@@ -59,11 +59,12 @@ const Skills = () => {
         </div>
 
         <div className="platform-badges reveal" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-          <div className="skill-tag" style={{ border: '1px solid var(--neon-green)', color: 'var(--text-primary)', padding: '0.6rem 1.2rem' }}>Google VRP</div>
-          <div className="skill-tag" style={{ border: '1px solid var(--neon-cyan)', color: 'var(--text-primary)', padding: '0.6rem 1.2rem' }}>HackerOne</div>
-          <div className="skill-tag" style={{ border: '1px solid var(--neon-purple)', color: 'var(--text-primary)', padding: '0.6rem 1.2rem' }}>Intigriti</div>
-          <div className="skill-tag" style={{ border: '1px solid var(--accent-warm)', color: 'var(--text-primary)', padding: '0.6rem 1.2rem' }}>LeetCode</div>
-          <div className="skill-tag" style={{ border: '1px solid rgba(255,255,255,0.2)', color: 'var(--text-primary)', padding: '0.6rem 1.2rem' }}>GitHub</div>
+          <a href="https://bughunters.google.com/" target="_blank" rel="noopener noreferrer" className="skill-tag platform-btn" style={{ '--btn-color': 'var(--neon-green)' }}>Google VRP</a>
+          <a href="https://hackerone.com/ashfi" target="_blank" rel="noopener noreferrer" className="skill-tag platform-btn" style={{ '--btn-color': 'var(--neon-cyan)' }}>HackerOne</a>
+          <a href="https://hackenproof.com/hackers/ashfiexe" target="_blank" rel="noopener noreferrer" className="skill-tag platform-btn" style={{ '--btn-color': '#fff' }}>HackenProof</a>
+          <a href="https://app.intigriti.com/researcher/profile/ashfiexe" target="_blank" rel="noopener noreferrer" className="skill-tag platform-btn" style={{ '--btn-color': 'var(--neon-purple)' }}>Intigriti</a>
+          <a href="https://leetcode.com/salahin0ashfi" target="_blank" rel="noopener noreferrer" className="skill-tag platform-btn" style={{ '--btn-color': 'var(--accent-warm)' }}>LeetCode</a>
+          <a href="https://github.com/AsHfIEXE" target="_blank" rel="noopener noreferrer" className="skill-tag platform-btn" style={{ '--btn-color': 'rgba(255,255,255,0.6)' }}>GitHub</a>
         </div>
       </div>
     </section>

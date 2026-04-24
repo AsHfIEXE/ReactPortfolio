@@ -729,14 +729,28 @@ button { font-family: inherit; }
   gap: 3rem;
   margin-top: 5rem;
 }
-.platform-badge {
-  filter: grayscale(100%) opacity(0.4);
-  transition: all 0.3s ease;
-  height: 35px;
-  object-fit: contain;
+
+.platform-btn {
+  border: 1px solid var(--btn-color);
+  color: var(--text-primary);
+  padding: 0.6rem 1.5rem;
+  border-radius: 6px;
+  font-family: var(--font-code);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  background: rgba(0,0,0,0.3);
+  text-transform: uppercase;
 }
-.platform-badge:hover {
-  filter: grayscale(0%) opacity(1);
+
+.platform-btn:hover {
+  background: rgba(255,255,255,0.05);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5), 0 0 15px calc(var(--btn-color) * 0.5); /* fallback */
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5), 0 0 15px var(--btn-color);
+  transform: translateY(-4px);
+  border-color: #fff;
+  color: #fff;
 }
 
 @media (max-width: 768px) {
