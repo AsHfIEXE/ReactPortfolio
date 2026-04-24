@@ -1086,6 +1086,11 @@ button { font-family: inherit; }
 .form-input:focus, .form-select:focus, .form-textarea:focus {
   border-color: var(--neon-green);
 }
+
+.form-select option {
+  background-color: var(--bg-card);
+  color: #fff;
+}
 .form-textarea { resize: vertical; min-height: 150px; }
 
 @media (max-width: 900px) {
