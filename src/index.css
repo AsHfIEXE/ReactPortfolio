@@ -1368,7 +1368,25 @@ button { font-family: inherit; }
   transform: translateY(-10px);
   transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
   z-index: 100;
-  overflow: hidden;
+  max-height: 250px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar for Dropdown */
+.custom-select-dropdown::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-select-dropdown::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 0 6px 6px 0;
+}
+.custom-select-dropdown::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 136, 0.3);
+  border-radius: 10px;
+}
+.custom-select-dropdown::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 255, 136, 0.6);
 }
 
 .custom-select-dropdown.show {

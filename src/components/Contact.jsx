@@ -6,10 +6,13 @@ const Contact = () => {
   const [selectedService, setSelectedService] = useState('');
 
   const services = [
-    "Penetration Testing",
+    "Web Application Pentesting",
+    "API Security Testing",
     "Web3 / Smart Contract Audit",
-    "Full-Stack Development",
+    "Source Code Review",
+    "Red Teaming / Adversary Simulation",
     "Bug Bounty Collaboration",
+    "Full-Stack Development",
     "Book / Writing Consultation",
     "Other"
   ];
