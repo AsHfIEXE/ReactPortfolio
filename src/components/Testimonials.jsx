@@ -27,25 +27,25 @@ const Testimonials = () => {
       role: "Client"
     },
     {
-      id: 2,
+      id: 4,
       quote: "Salehin Ashfi weaves intricate sci-fi narratives that challenge reality, blending deep emotions, rich world-building, and thought-provoking themes into unforgettable stories.",
       author: "Ankita Khandekar",
       role: "Reader & Reviewer"
     },
     {
-      id: 3,
+      id: 5,
       quote: "Salehin is a cybersecurity genius! Highly recommend!",
       author: "Vasker",
       role: "Security Professional"
     },
     {
-      id: 4,
+      id: 6,
       quote: "Innovative and skilled developer with a keen eye for security.",
       author: "Lisa Michel",
       role: "Tech Lead"
     },
     {
-      id: 5,
+      id: 7,
       quote: "Both of these amazing books are truly MESMERIZING!!! It took me to another universe. Such a nice writer at a young age!!!",
       author: "Frank Danial",
       role: "Avid Reader"

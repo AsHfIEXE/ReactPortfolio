@@ -61,7 +61,7 @@ function App() {
       "> Decrypting assets... [████████████] 100%",
       "> ACCESS GRANTED. Welcome."
     ];
-    
+
     let currentLine = 0;
     let currentChar = 0;
     let currentText = "";
@@ -84,7 +84,37 @@ function App() {
       }
     };
 
-    setTimeout(typeWriter, 300);
+    typeWriter();
+  }, []);
+
+  // Easter Eggs
+  useEffect(() => {
+    // 1. Developer Console Message
+    console.log("%cWARNING: SYSTEM BREACH DETECTED", "color: #ff375f; font-size: 20px; font-weight: bold; font-family: monospace;");
+    console.log("%cJust kidding! Welcome to the source code. \nIf you're reading this, you're either a fellow dev or hunting for bugs. \nFound a real vulnerability? Let's talk business via the Contact form. \n\n- Salehin Ashfi (Cybersecurity Researcher / Dev)", "color: #00ff88; font-size: 14px; font-family: monospace; line-height: 1.5;");
+
+    // 2. Secret Keystroke Combo
+    const handleKeyDown = (e) => {
+      // Ignore modifier keys
+      if (!e.key || e.key.length > 1) return;
+
+      window.__cyberBuffer = (window.__cyberBuffer || "") + e.key.toLowerCase();
+
+      if (window.__cyberBuffer.length > 40) {
+        window.__cyberBuffer = window.__cyberBuffer.slice(-40);
+      }
+
+      const words = ['bounty', 'hacker', 'admin', 'root', 'ashfi', 'ctf', 'hack', 'sex', 'porn', 'boobs', 'penis', 'ass', 'dick', 'fuck', 'cum', 'shit', 'motherfucker', 'bitch', 'bastard', 'hell', 'damn', 'god', 'jesus', 'allah', 'buddha', 'hindu', 'porn'];
+      const foundWord = words.find(w => window.__cyberBuffer.includes(w));
+
+      if (foundWord) {
+        alert(`🕵️‍♂️ FLAG FOUND! CTF{h4ck_th3_pl4n3t_w1th_4shfi}\n\nYou successfully triggered the "${foundWord}" sequence. Sadly, there is no monetary bounty for this, but you have earned my absolute respect. 🛡️`);
+        window.__cyberBuffer = ''; // reset buffer after finding
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
   return (
@@ -108,7 +138,7 @@ function App() {
       <CustomCursor />
       <div className="noise-overlay"></div>
       <div className="scanlines"></div>
-      
+
       {!loading && (
         <>
           <Navbar />
@@ -125,9 +155,9 @@ function App() {
           </main>
           <Footer />
 
-          <a 
-            href="https://www.fiverr.com/salehinashfi" 
-            target="_blank" 
+          <a
+            href="https://www.fiverr.com/salehinashfi"
+            target="_blank"
             rel="noopener noreferrer"
             className={`floating-cta btn btn-primary ${showFloatingCTA ? 'visible' : ''}`}
           >
