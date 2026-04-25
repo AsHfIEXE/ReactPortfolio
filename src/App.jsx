@@ -87,11 +87,16 @@ function App() {
     typeWriter();
   }, []);
 
+let consoleLogged = false;
+
   // Easter Eggs
   useEffect(() => {
     // 1. Developer Console Message
-    console.log("%cWARNING: SYSTEM BREACH DETECTED", "color: #ff375f; font-size: 20px; font-weight: bold; font-family: monospace;");
-    console.log("%cJust kidding! Welcome to the source code. \nIf you're reading this, you're either a fellow dev or hunting for bugs. \nFound a real vulnerability? Let's talk business via the Contact form. \n\n- Salehin Ashfi (Cybersecurity Researcher / Dev)", "color: #00ff88; font-size: 14px; font-family: monospace; line-height: 1.5;");
+    if (!consoleLogged) {
+      console.log("%cWARNING: SYSTEM BREACH DETECTED", "color: #ff375f; font-size: 20px; font-weight: bold; font-family: monospace;");
+      console.log("%cJust kidding! Welcome to the source code. \nIf you're reading this, you're either a fellow dev or hunting for bugs. \nFound a real vulnerability? Let's talk business via the Contact form. \n\n- Salehin Ashfi (Cybersecurity Researcher / Dev)", "color: #00ff88; font-size: 14px; font-family: monospace; line-height: 1.5;");
+      consoleLogged = true;
+    }
 
     // 2. Secret Keystroke Combo
     const handleKeyDown = (e) => {
@@ -104,11 +109,29 @@ function App() {
         window.__cyberBuffer = window.__cyberBuffer.slice(-40);
       }
 
-      const words = ['bounty', 'hacker', 'admin', 'root', 'ashfi', 'ctf', 'hack', 'sex', 'porn', 'boobs', 'penis', 'ass', 'dick', 'fuck', 'cum', 'shit', 'motherfucker', 'bitch', 'bastard', 'hell', 'damn', 'god', 'jesus', 'allah', 'buddha', 'hindu', 'porn'];
-      const foundWord = words.find(w => window.__cyberBuffer.includes(w));
+      const profanity = ['sex', 'porn', 'boobs', 'penis', 'ass', 'dick', 'fuck', 'cum', 'shit', 'motherfucker', 'bitch', 'bastard'];
+      const religion = ['god', 'jesus', 'allah', 'buddha', 'hindu', 'hell', 'damn'];
+      const hacker = ['bounty', 'hacker', 'admin', 'root', 'ashfi', 'ctf', 'hack'];
+
+      const allWords = [...profanity, ...religion, ...hacker];
+      const foundWord = allWords.find(w => window.__cyberBuffer.includes(w));
 
       if (foundWord) {
-        alert(`🕵️‍♂️ FLAG FOUND! CTF{h4ck_th3_pl4n3t_w1th_4shfi}\n\nYou successfully triggered the "${foundWord}" sequence. Sadly, there is no monetary bounty for this, but you have earned my absolute respect. 🛡️`);
+        let jokeMessage = "";
+        
+        if (profanity.includes(foundWord)) {
+          jokeMessage = `🤨 Really? You're typing "${foundWord}" on a professional portfolio? My firewall is judging you.`;
+        } else if (religion.includes(foundWord)) {
+          jokeMessage = `🙏 Praying to "${foundWord}" won't help you bypass my security!`;
+        } else if (['admin', 'root'].includes(foundWord)) {
+          jokeMessage = `🛑 Nice try. But I didn't leave the "${foundWord}" backdoor open.`;
+        } else if (foundWord === 'ashfi') {
+          jokeMessage = `👋 Hey! That's me! I see you trying to OSINT the creator.`;
+        } else {
+          jokeMessage = `🕵️‍♂️ FLAG FOUND! CTF{h4ck_th3_pl4n3t_w1th_4shfi}\n\nYou successfully triggered the "${foundWord}" sequence. Sadly, there is no monetary bounty for this, but you have earned my absolute respect. 🛡️`;
+        }
+
+        alert(jokeMessage);
         window.__cyberBuffer = ''; // reset buffer after finding
       }
     };
