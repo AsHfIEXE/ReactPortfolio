@@ -18,6 +18,14 @@ const BugBounty = () => {
               or marked 'Won't Fix' — was part of the learning process."<br/>
               <span style={{color: 'var(--neon-green)', marginTop: '8px', display: 'block'}}>— Salehin Ashfi</span>
             </div>
+            
+            <a href="https://bughunters.google.com/profile/7e8eaec9-9b36-437c-bef6-32bc9552f5d3" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               className="btn btn-ghost" 
+               style={{ marginTop: '1.5rem', display: 'inline-block' }}>
+              View Google VRP Profile →
+            </a>
           </div>
           
           <div className="bounty-radar">

@@ -59,7 +59,7 @@ const Skills = () => {
         </div>
 
         <div className="platform-badges reveal" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-          <a href="https://bughunters.google.com/" target="_blank" rel="noopener noreferrer" className="skill-tag platform-btn" style={{ '--btn-color': 'var(--neon-green)' }}>Google VRP</a>
+          <a href="https://bughunters.google.com/profile/7e8eaec9-9b36-437c-bef6-32bc9552f5d3" target="_blank" rel="noopener noreferrer" className="skill-tag platform-btn" style={{ '--btn-color': 'var(--neon-green)' }}>Google VRP</a>
           <a href="https://hackerone.com/ashfi" target="_blank" rel="noopener noreferrer" className="skill-tag platform-btn" style={{ '--btn-color': 'var(--neon-cyan)' }}>HackerOne</a>
           <a href="https://hackenproof.com/hackers/ashfiexe" target="_blank" rel="noopener noreferrer" className="skill-tag platform-btn" style={{ '--btn-color': '#fff' }}>HackenProof</a>
           <a href="https://app.intigriti.com/researcher/profile/ashfiexe" target="_blank" rel="noopener noreferrer" className="skill-tag platform-btn" style={{ '--btn-color': 'var(--neon-purple)' }}>Intigriti</a>
