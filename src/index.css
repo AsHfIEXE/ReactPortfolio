@@ -20,9 +20,13 @@ ul { list-style: none; }
 button { font-family: inherit; }
 
 /* ---- GLOBAL UX ---- */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 255, 136, 0.4) #050505;
+}
 ::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-track { background: #050505; }
-::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 10px; border: 2px solid #050505; }
+::-webkit-scrollbar-thumb { background: rgba(0, 255, 136, 0.3); border-radius: 10px; border: 2px solid #050505; }
 ::-webkit-scrollbar-thumb:hover { background: var(--neon-green); }
 
 ::selection {
@@ -868,6 +872,8 @@ button { font-family: inherit; }
   overflow-x: auto;
   padding-bottom: 3rem;
   scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.2) var(--bg-secondary);
 }
 .books-container::-webkit-scrollbar { height: 4px; }
 .books-container::-webkit-scrollbar-track { background: var(--bg-secondary); }
@@ -1371,6 +1377,8 @@ button { font-family: inherit; }
   max-height: 250px;
   overflow-y: auto;
   overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 255, 136, 0.3) rgba(0, 0, 0, 0.2);
 }
 
 /* Custom Scrollbar for Dropdown */
