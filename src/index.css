@@ -680,8 +680,16 @@ html {
   flex-direction: column;
   justify-content: center;
 }
-.prose-section p { margin-bottom: 1.5rem; }
+.prose-section p { margin-bottom: 1.5rem; line-height: 1.8; }
 .prose-section p:last-child { margin-bottom: 0; }
+
+.story-closing {
+  border-left: 2px solid var(--neon-green);
+  padding-left: 1.2rem;
+  color: var(--text-primary) !important;
+  opacity: 0.9;
+  font-style: italic;
+}
 
 .counters {
   display: grid;

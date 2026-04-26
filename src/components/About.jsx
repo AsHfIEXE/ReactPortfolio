@@ -83,16 +83,22 @@ const About = () => {
           
           <div className="prose-section reveal" style={{ animationDelay: '0.2s' }}>
             <p>
-              I started this journey at 15 — not because someone told me to, but because I was curious about how things break. Cybersecurity wasn't a career choice; it was an obsession that grew into expertise.
+              I started this journey at 15 — not because someone showed me a path, but because I was curious about how systems break. That curiosity didn't stay surface-level for long. It turned into late nights, constant experimentation, and a mindset that questions everything — how systems behave, where logic fails, and how small oversights evolve into critical vulnerabilities. Cybersecurity wasn't a career decision; it was an obsession that shaped the way I think.
             </p>
             <p>
-              From submitting my first bug report to earning my place on Google's Bug Hunters leaderboard (#1577 globally), every rejection, every 'won't fix', every sleepless night hunting for vulnerabilities across web apps, blockchain protocols, and smart contracts taught me something new.
+              The beginning wasn't smooth. My early bug reports were ignored or closed as "won't fix." But each rejection forced me deeper — beyond symptoms, into root causes. Over time, persistence turned into precision, eventually earning me a place on the Google Bug Hunters leaderboard (#1577 globally). Since then, I've worked across web applications, APIs, and emerging technologies like blockchain protocols and smart contracts — continuously refining my approach to reconnaissance, vulnerability discovery, and responsible disclosure.
             </p>
             <p>
-              But hacking isn't everything I am. When I step away from terminals and vulnerability reports, I write science fiction — stories about time manipulation, digital consciousness, and the blurry line between human and machine. Five books published. Thousands of readers. All before I turned 20.
+              But breaking systems is only part of the story. I also build — tools, workflows, and ideas. From developing Python-based automation systems to creating cybersecurity-focused tools and AI-driven applications, my focus is on designing systems that are not only functional, but resilient by design.
             </p>
             <p>
-              I live at the intersection of breaking things and building them — and I wouldn't have it any other way.
+              And beyond systems, there's another layer that drives everything I do. I write — not as a side activity, but as a form of exploration. My work spans science fiction focused on time manipulation, digital consciousness, and the evolving boundary between human and machine. Five books published. Thousands of readers. All before turning 20.
+            </p>
+            <p>
+              Alongside that, I write music. Music has always been a constant — something I return to every day. I listen almost continuously, not just for enjoyment, but because it sharpens my thinking. It allows me to slow down, reflect, and explore ideas more deeply. That introspective space shapes both my writing and how I approach complex systems.
+            </p>
+            <p className="story-closing">
+              Cybersecurity teaches me how systems break. Development teaches me how to build them better. Writing and music help me understand the meaning behind both. I operate at the intersection of logic and introspection — where curiosity becomes discipline, failure becomes insight, and ideas evolve into systems. <em>And I'm still building.</em>
             </p>
           </div>
         </div>
