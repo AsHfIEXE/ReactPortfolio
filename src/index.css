@@ -246,6 +246,33 @@ html {
   transform: translateY(-2px) scale(1.02);
 }
 
+.swipe-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: var(--text-primary);
+  cursor: none;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.swipe-btn:hover {
+  background: rgba(0, 255, 136, 0.1);
+  border-color: var(--neon-green);
+  color: var(--neon-green);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 5px 20px rgba(0, 255, 136, 0.3);
+}
+
+.swipe-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
 /* ---- NAVBAR ---- */
 .navbar {
   position: fixed;

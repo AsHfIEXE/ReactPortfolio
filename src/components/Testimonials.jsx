@@ -56,6 +56,9 @@ const Testimonials = () => {
   const [isHovered, setIsHovered] = useState(false);
   const trackRef = useRef(null);
 
+  const nextSlide = () => setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+  const prevSlide = () => setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+
   useEffect(() => {
     if (isHovered) return;
     
@@ -69,7 +72,17 @@ const Testimonials = () => {
   return (
     <section className="section">
       <div className="wrap">
-        <h2 className="heading reveal">What People Say</h2>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '3rem' }}>
+          <h2 className="heading reveal" style={{ marginBottom: 0 }}>What People Say</h2>
+          <div className="swipe-buttons reveal" style={{ display: 'flex', gap: '10px' }}>
+            <button onClick={prevSlide} className="swipe-btn" aria-label="Previous testimonial">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <button onClick={nextSlide} className="swipe-btn" aria-label="Next testimonial">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
         
         <div 
           className="testimonials reveal"
@@ -83,7 +96,8 @@ const Testimonials = () => {
               transform: `translateX(-${currentIndex * 100}%)`,
               width: '100%',
               display: 'flex',
-              gap: '0' // removed gap to make translate -100% work perfectly
+              gap: '0',
+              transition: 'transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1)'
             }}
           >
             {testimonials.map((t) => (

@@ -63,7 +63,6 @@ const booksData = [
   }
 ];
 
-
 const BookCard = ({ book }) => {
   return (
     <div className="book-card-wrap">
@@ -92,12 +91,34 @@ const BookCard = ({ book }) => {
 };
 
 const Books = () => {
+  const scrollRef = useRef(null);
+
+  const scroll = (direction) => {
+    if (scrollRef.current) {
+      const scrollAmount = 350; // card width + gap approx
+      scrollRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <section id="books" className="section">
       <div className="wrap">
-        <h2 className="heading reveal">Worlds I've Built</h2>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '3rem' }}>
+          <h2 className="heading reveal" style={{ marginBottom: 0 }}>Worlds I've Built</h2>
+          <div className="swipe-buttons reveal" style={{ display: 'flex', gap: '10px' }}>
+            <button onClick={() => scroll('left')} className="swipe-btn" aria-label="Previous books">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <button onClick={() => scroll('right')} className="swipe-btn" aria-label="Next books">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
 
-        <div className="books-container reveal">
+        <div className="books-container reveal" ref={scrollRef}>
           {booksData.map(book => (
             <BookCard key={book.id} book={book} />
           ))}
