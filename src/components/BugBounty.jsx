@@ -29,7 +29,7 @@ const BugBounty = () => {
           </div>
           
           <div className="bounty-radar">
-            <svg viewBox="0 0 100 100" className="w-full h-full">
+            <svg viewBox="-20 -5 140 110" className="w-full h-full" overflow="visible">
               {/* Radar background grid */}
               <polygon points="50,5 90,27 90,73 50,95 10,73 10,27" fill="rgba(0,255,136,0.05)" stroke="rgba(0,255,136,0.2)" strokeWidth="0.5"/>
               <polygon points="50,20 76.5,35 76.5,65 50,80 23.5,65 23.5,35" fill="none" stroke="rgba(0,255,136,0.2)" strokeWidth="0.5"/>
