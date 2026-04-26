@@ -1,0 +1,34 @@
+<svg id="cyber-svg" width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="glow-green">
+          <feGaussianBlur stdDeviation="1.5" result="blur"></feGaussianBlur>
+          <feMerge><feMergeNode in="blur"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge>
+        </filter>
+      </defs>
+      <!-- Shield outline with flat bottom-point -->
+      <path d="M36 6 L62 17 L62 38 Q62 56 36 66 Q10 56 10 38 L10 17 Z" fill="none" stroke="#00e5a0" stroke-width="1.5" stroke-linejoin="round" opacity="0.25"></path>
+      <!-- Shield inner glow fill -->
+      <path d="M36 10 L57 19.5 L57 38 Q57 52 36 61 Q15 52 15 38 L15 19.5 Z" fill="rgba(0,229,160,0.05)" stroke="#00e5a0" stroke-width="1" stroke-linejoin="round" opacity="0.5"></path>
+      <!-- Lock body -->
+      <rect x="29" y="33" width="14" height="11" rx="2" fill="none" stroke="#00e5a0" stroke-width="1.2" filter="url(#glow-green)"></rect>
+      <!-- Lock shackle -->
+      <path d="M31 33 L31 29 Q31 25 36 25 Q41 25 41 29 L41 33" fill="none" stroke="#00e5a0" stroke-width="1.2" stroke-linecap="round"></path>
+      <!-- Lock keyhole dot -->
+      <circle cx="36" cy="38.5" r="1.5" fill="#00e5a0" opacity="0.8"></circle>
+      <!-- Circuit lines emanating from shield -->
+      <line x1="10" y1="26" x2="4" y2="26" stroke="#00e5a0" stroke-width="0.8" opacity="0.4"></line>
+      <circle cx="3" cy="26" r="1.2" fill="#00e5a0" opacity="0.6"></circle>
+      <line x1="10" y1="34" x2="4" y2="34" stroke="#00e5a0" stroke-width="0.8" opacity="0.3"></line>
+      <line x1="4" y1="34" x2="4" y2="38" stroke="#00e5a0" stroke-width="0.8" opacity="0.3"></line>
+      <circle cx="4" cy="39" r="1" fill="#00e5a0" opacity="0.4"></circle>
+      <line x1="62" y1="26" x2="68" y2="26" stroke="#00e5a0" stroke-width="0.8" opacity="0.4"></line>
+      <circle cx="69" cy="26" r="1.2" fill="#00e5a0" opacity="0.6"></circle>
+      <line x1="62" y1="34" x2="68" y2="34" stroke="#00e5a0" stroke-width="0.8" opacity="0.3"></line>
+      <line x1="68" y1="34" x2="68" y2="38" stroke="#00e5a0" stroke-width="0.8" opacity="0.3"></line>
+      <circle cx="68" cy="39" r="1" fill="#00e5a0" opacity="0.4"></circle>
+      <!-- Scan line -->
+      <line x1="19" y1="38" x2="53" y2="38" stroke="#00e5a0" stroke-width="0.5" stroke-dasharray="2 3" opacity="0.35"></line>
+      <!-- Corner brackets top-left -->
+      <path d="M19 16 L14 16 L14 21" fill="none" stroke="#00e5a0" stroke-width="0.8" stroke-linecap="round" opacity="0.5"></path>
+      <path d="M53 16 L58 16 L58 21" fill="none" stroke="#00e5a0" stroke-width="0.8" stroke-linecap="round" opacity="0.5"></path>
+    </svg>

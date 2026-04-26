@@ -1,0 +1,29 @@
+<svg id="web3-svg" width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="glow-purple">
+          <feGaussianBlur stdDeviation="1.5" result="blur"></feGaussianBlur>
+          <feMerge><feMergeNode in="blur"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge>
+        </filter>
+      </defs>
+      <!-- Central hex -->
+      <polygon points="36,20 47,26.5 47,39.5 36,46 25,39.5 25,26.5" fill="rgba(185,128,255,0.08)" stroke="#b980ff" stroke-width="1.4" filter="url(#glow-purple)"></polygon>
+      <!-- Inner hex dot -->
+      <polygon points="36,27 40.5,29.6 40.5,34.9 36,37.5 31.5,34.9 31.5,29.6" fill="rgba(185,128,255,0.2)" stroke="#b980ff" stroke-width="0.8" opacity="0.7"></polygon>
+      <!-- Center dot -->
+      <circle cx="36" cy="33" r="2.5" fill="#b980ff" opacity="0.9"></circle>
+      <!-- Chain links: top -->
+      <line x1="36" y1="20" x2="36" y2="10" stroke="#b980ff" stroke-width="1" opacity="0.5"></line>
+      <polygon points="36,4 40,7 40,13 36,16 32,13 32,7" fill="rgba(185,128,255,0.12)" stroke="#b980ff" stroke-width="0.9" opacity="0.7"></polygon>
+      <!-- Chain links: bottom-right -->
+      <line x1="47" y1="39.5" x2="55" y2="44" stroke="#b980ff" stroke-width="1" opacity="0.5"></line>
+      <polygon points="60,44 64,47 64,53 60,56 56,53 56,47" fill="rgba(185,128,255,0.12)" stroke="#b980ff" stroke-width="0.9" opacity="0.7"></polygon>
+      <!-- Chain links: bottom-left -->
+      <line x1="25" y1="39.5" x2="17" y2="44" stroke="#b980ff" stroke-width="1" opacity="0.5"></line>
+      <polygon points="12,44 16,47 16,53 12,56 8,53 8,47" fill="rgba(185,128,255,0.12)" stroke="#b980ff" stroke-width="0.9" opacity="0.7"></polygon>
+      <!-- Pulse rings -->
+      <polygon points="36,15 52,24 52,42 36,51 20,42 20,24" fill="none" stroke="#b980ff" stroke-width="0.5" stroke-dasharray="3 4" opacity="0.2"></polygon>
+      <!-- Node dots at far hexes -->
+      <circle cx="36" cy="10" r="1.5" fill="#b980ff" opacity="0.6"></circle>
+      <circle cx="55" cy="44" r="1.5" fill="#b980ff" opacity="0.6"></circle>
+      <circle cx="17" cy="44" r="1.5" fill="#b980ff" opacity="0.6"></circle>
+    </svg>

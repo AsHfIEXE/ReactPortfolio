@@ -211,9 +211,30 @@ const Hero = () => {
         <h1
           className={`hero-title glitch ${glitchActive ? 'active' : ''}`}
           onClick={handleTitleTap}
-          style={{ cursor: 'pointer', WebkitTapHighlightColor: 'transparent' }}
+          style={{ cursor: 'pointer', WebkitTapHighlightColor: 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap', gap: '0.2em' }}
         >
-          SALEHIN ASHFI
+          <span>SALEHIN</span>
+          <span style={{ display: 'inline-flex', alignItems: 'center' }}>
+            <svg style={{ height: '0.85em', width: 'auto', marginRight: '0.05em' }} viewBox="0 0 60 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="ashfi-hero-grad" x1="8" y1="68" x2="52" y2="4" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stopColor="#00c484"/>
+                  <stop offset="100%" stopColor="#00ffc3"/>
+                </linearGradient>
+              </defs>
+              <line x1="8" y1="65" x2="30" y2="10" stroke="url(#ashfi-hero-grad)" strokeWidth="6" strokeLinecap="square"/>
+              <line x1="30" y1="10" x2="52" y2="65" stroke="url(#ashfi-hero-grad)" strokeWidth="6" strokeLinecap="square"/>
+              <line x1="16" y1="45" x2="44" y2="45" stroke="#00e5a0" strokeWidth="3" strokeLinecap="square"/>
+              <line x1="44" y1="45" x2="54" y2="45" stroke="#00e5a0" strokeWidth="2" opacity="0.45"/>
+              <line x1="54" y1="45" x2="54" y2="39" stroke="#00e5a0" strokeWidth="2" opacity="0.45"/>
+              <circle cx="54" cy="37.5" r="2.5" fill="#00e5a0" opacity="0.75"/>
+              <circle cx="30" cy="10" r="4" fill="#04040c" stroke="#00e5a0" strokeWidth="2"/>
+              <circle cx="30" cy="10" r="2" fill="#00e5a0"/>
+              <rect x="4" y="62" width="8" height="8" fill="#04040c" stroke="#00e5a0" strokeWidth="2"/>
+              <rect x="48" y="62" width="8" height="8" fill="#04040c" stroke="#00e5a0" strokeWidth="2"/>
+            </svg>
+            SHFI
+          </span>
         </h1>
 
         <div className="hero-subtitle">
