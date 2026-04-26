@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 const DynamicStats = () => {
+  const [isVisible, setIsVisible] = useState(false);
   const [lcData, setLcData] = useState({
     solvedProblem: 304,
     easySolved: 91,
@@ -27,20 +28,24 @@ const DynamicStats = () => {
     };
     
     fetchLeetCode();
+
+    // Trigger animation slightly after mount
+    const timer = setTimeout(() => setIsVisible(true), 300);
+    return () => clearTimeout(timer);
   }, []);
 
   // Precise SVG Math for perfect rings
-  const rEasy = 40;
-  const rMed = 32;
-  const rHard = 24;
+  const rEasy = 46;
+  const rMed = 39;
+  const rHard = 32;
   
   const circEasy = 2 * Math.PI * rEasy;
   const circMed = 2 * Math.PI * rMed;
   const circHard = 2 * Math.PI * rHard;
 
-  const offEasy = circEasy - (circEasy * Math.min(lcData.easySolved / 200, 1));
-  const offMed = circMed - (circMed * Math.min(lcData.mediumSolved / 400, 1));
-  const offHard = circHard - (circHard * Math.min(lcData.hardSolved / 150, 1));
+  const offEasy = isVisible ? circEasy - (circEasy * Math.min(lcData.easySolved / 200, 1)) : circEasy;
+  const offMed = isVisible ? circMed - (circMed * Math.min(lcData.mediumSolved / 400, 1)) : circMed;
+  const offHard = isVisible ? circHard - (circHard * Math.min(lcData.hardSolved / 150, 1)) : circHard;
 
   return (
     <section id="stats" className="section">

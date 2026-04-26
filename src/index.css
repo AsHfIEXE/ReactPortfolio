@@ -1144,9 +1144,9 @@ html {
 
 .lc-svg circle {
   fill: none;
-  stroke-width: 6;
+  stroke-width: 5;
   stroke-linecap: round;
-  transition: stroke-dashoffset 1.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: stroke-dashoffset 2s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .lc-track { stroke: rgba(255,255,255,0.05); }
@@ -1165,7 +1165,7 @@ html {
 
 .lc-big {
   font-family: var(--font-display);
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   font-weight: 700;
   color: #fff;
   line-height: 1;
@@ -1173,10 +1173,10 @@ html {
 
 .lc-small {
   font-family: var(--font-code);
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   color: var(--text-secondary);
   text-transform: uppercase;
-  margin-top: 0.4rem;
+  margin-top: 0.2rem;
 }
 
 .lc-legend {
