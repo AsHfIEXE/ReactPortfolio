@@ -1,21 +1,229 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" prefix="og: https://ogp.me/ns#">
 
 <head>
   <meta charset="UTF-8" />
+
+  <!-- ═══════════════════════════════════════════════════
+       FAVICON
+  ════════════════════════════════════════════════════ -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/favicon.svg" />
+
+  <!-- ═══════════════════════════════════════════════════
+       VIEWPORT & THEME
+  ════════════════════════════════════════════════════ -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#050505" />
+  <meta name="color-scheme" content="dark" />
+
+  <!-- ═══════════════════════════════════════════════════
+       PRIMARY SEO
+  ════════════════════════════════════════════════════ -->
+  <title>Salehin Ashfi | Cybersecurity Researcher · Bug Bounty Hunter · Developer · Sci-Fi Author</title>
   <meta name="description"
-    content="Salehin Ashfi — Cybersecurity Researcher, Ethical Hacker, Bug Bounty Hunter, Full-Stack Developer, and Published Sci-Fi Author. Google VRP #1577 Globally. Author of the ChronoGenesis series." />
+    content="Salehin Ashfi — Bangladeshi Cybersecurity Researcher, Ethical Hacker, and Bug Bounty Hunter ranked #1577 on the Google Bug Hunters leaderboard. Full-stack developer, Web3 security specialist, smart contract auditor, and published Sci-Fi author of the ChronoGenesis series. Available for security consulting and freelance work." />
   <meta name="author" content="Salehin Ashfi" />
   <meta name="keywords"
-    content="cybersecurity, ethical hacker, bug bounty, penetration testing, web3 security, smart contract auditing, sci-fi author, salehin ashfi" />
+    content="Salehin Ashfi, salehin, ashfi, cybersecurity researcher, ethical hacker, bug bounty hunter, Google VRP, Google Bug Hunters, penetration testing, web application security, OWASP, API security, blockchain security, smart contract audit, Web3 security, DeFi security, OSINT, vulnerability disclosure, full-stack developer, Python developer, sci-fi author, ChronoGenesis, Bangladesh hacker, ashfiexe" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <link rel="canonical" href="https://salehinashfi.netlify.app/" />
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+  <!-- ═══════════════════════════════════════════════════
+       OPEN GRAPH (Facebook / LinkedIn / Discord)
+  ════════════════════════════════════════════════════ -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://salehinashfi.netlify.app/" />
+  <meta property="og:site_name" content="Salehin Ashfi — Portfolio" />
+  <meta property="og:title" content="Salehin Ashfi | Cybersecurity Researcher & Bug Bounty Hunter" />
+  <meta property="og:description"
+    content="Google VRP #1577 globally. Ethical hacker, Web3 security researcher, Python developer, and published Sci-Fi author from Bangladesh. Breaking systems responsibly since age 15." />
+  <meta property="og:image" content="https://salehinashfi.netlify.app/og-preview.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Salehin Ashfi — Cybersecurity Researcher Portfolio" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- ═══════════════════════════════════════════════════
+       TWITTER CARD
+  ════════════════════════════════════════════════════ -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@ashfiexe" />
+  <meta name="twitter:creator" content="@ashfiexe" />
+  <meta name="twitter:title" content="Salehin Ashfi | Cybersecurity Researcher & Bug Bounty Hunter" />
+  <meta name="twitter:description"
+    content="Google VRP #1577 globally. Ethical hacker, Web3 security researcher, Python developer, and Sci-Fi author from Bangladesh." />
+  <meta name="twitter:image" content="https://salehinashfi.netlify.app/og-preview.png" />
+  <meta name="twitter:image:alt" content="Salehin Ashfi Portfolio" />
+
+  <!-- ═══════════════════════════════════════════════════
+       STRUCTURED DATA — Person (Knowledge Panel)
+  ════════════════════════════════════════════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Salehin Ashfi",
+    "alternateName": ["AshfiEXE", "ashfiexe", "Salehin"],
+    "url": "https://salehinashfi.netlify.app",
+    "image": "https://salehinashfi.netlify.app/og-preview.png",
+    "description": "Bangladeshi Cybersecurity Researcher, Bug Bounty Hunter, Full-Stack Developer, and published Sci-Fi Author. Google Bug Hunters ranked #1577 globally.",
+    "jobTitle": "Cybersecurity Researcher & Software Developer",
+    "nationality": {
+      "@type": "Country",
+      "name": "Bangladesh"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Chandpur",
+      "addressCountry": "BD"
+    },
+    "knowsAbout": [
+      "Cybersecurity", "Penetration Testing", "Bug Bounty Hunting",
+      "Web Application Security", "OWASP", "API Security Testing",
+      "Blockchain Security", "Smart Contract Auditing", "Web3 Security",
+      "Python Development", "Full-Stack Development", "CLI Tool Development",
+      "AI/ML Integration", "Science Fiction Writing"
+    ],
+    "award": "Google Bug Hunters Leaderboard #1577 Globally",
+    "sameAs": [
+      "https://github.com/AsHfIEXE",
+      "https://hackerone.com/ashfi",
+      "https://bughunters.google.com/profile/7e8eaec9-9b36-437c-bef6-32bc9552f5d3",
+      "https://app.intigriti.com/researcher/profile/ashfiexe",
+      "https://hackenproof.com/hackers/ashfiexe",
+      "https://leetcode.com/salahin0ashfi",
+      "https://www.fiverr.com/salehinashfi"
+    ]
+  }
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════
+       STRUCTURED DATA — WebSite (Search Box + Sitelinks)
+  ════════════════════════════════════════════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Salehin Ashfi — Cybersecurity Portfolio",
+    "alternateName": "AshfiEXE Portfolio",
+    "url": "https://salehinashfi.netlify.app",
+    "description": "Official portfolio of Salehin Ashfi — Cybersecurity Researcher, Bug Bounty Hunter, Developer, and Sci-Fi Author from Bangladesh."
+  }
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════
+       STRUCTURED DATA — SiteNavigationElement (Sitelinks)
+  ════════════════════════════════════════════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": [
+      {
+        "@type": "SiteNavigationElement",
+        "position": 1,
+        "name": "About",
+        "description": "The story behind Salehin Ashfi — self-taught cybersecurity researcher since age 15",
+        "url": "https://salehinashfi.netlify.app/#about"
+      },
+      {
+        "@type": "SiteNavigationElement",
+        "position": 2,
+        "name": "Skills & Expertise",
+        "description": "Cybersecurity, Web3 Security, Development, Writing, and Analytical skills",
+        "url": "https://salehinashfi.netlify.app/#skills"
+      },
+      {
+        "@type": "SiteNavigationElement",
+        "position": 3,
+        "name": "Bug Bounty",
+        "description": "Google VRP #1577 — Bug bounty hunting across web apps, APIs, and blockchain protocols",
+        "url": "https://salehinashfi.netlify.app/#bounty"
+      },
+      {
+        "@type": "SiteNavigationElement",
+        "position": 4,
+        "name": "Published Books",
+        "description": "Science fiction novels including the ChronoGenesis series — 5+ books published before age 20",
+        "url": "https://salehinashfi.netlify.app/#books"
+      },
+      {
+        "@type": "SiteNavigationElement",
+        "position": 5,
+        "name": "Projects",
+        "description": "Open-source security tools, Python automation, and AI-driven applications",
+        "url": "https://salehinashfi.netlify.app/#projects"
+      },
+      {
+        "@type": "SiteNavigationElement",
+        "position": 6,
+        "name": "Stats",
+        "description": "LeetCode stats, GitHub contribution graph, and live coding metrics",
+        "url": "https://salehinashfi.netlify.app/#stats"
+      },
+      {
+        "@type": "SiteNavigationElement",
+        "position": 7,
+        "name": "Contact",
+        "description": "Get in touch for security consulting, freelance development, or collaboration",
+        "url": "https://salehinashfi.netlify.app/#contact"
+      }
+    ]
+  }
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════
+       STRUCTURED DATA — ProfilePage (Google Rich Result)
+  ════════════════════════════════════════════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Salehin Ashfi",
+      "alternateName": "AshfiEXE",
+      "description": "Cybersecurity Researcher, Bug Bounty Hunter, Developer & Sci-Fi Author",
+      "image": "https://salehinashfi.netlify.app/og-preview.png",
+      "sameAs": [
+        "https://github.com/AsHfIEXE",
+        "https://hackerone.com/ashfi",
+        "https://bughunters.google.com/profile/7e8eaec9-9b36-437c-bef6-32bc9552f5d3"
+      ]
+    },
+    "dateCreated": "2024-01-01",
+    "dateModified": "2026-04-26"
+  }
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════
+       STRUCTURED DATA — BreadcrumbList
+  ════════════════════════════════════════════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://salehinashfi.netlify.app/" },
+      { "@type": "ListItem", "position": 2, "name": "About", "item": "https://salehinashfi.netlify.app/#about" },
+      { "@type": "ListItem", "position": 3, "name": "Skills", "item": "https://salehinashfi.netlify.app/#skills" },
+      { "@type": "ListItem", "position": 4, "name": "Books", "item": "https://salehinashfi.netlify.app/#books" },
+      { "@type": "ListItem", "position": 5, "name": "Projects", "item": "https://salehinashfi.netlify.app/#projects" },
+      { "@type": "ListItem", "position": 6, "name": "Contact", "item": "https://salehinashfi.netlify.app/#contact" }
+    ]
+  }
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════
+       FONTS — preconnect first, then stylesheet
+  ════════════════════════════════════════════════════ -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
     rel="stylesheet" />
-  <title>Salehin Ashfi — Cybersecurity Researcher · Developer · Sci-Fi Author</title>
 </head>
 
 <body>
