@@ -5,54 +5,111 @@ const Skills = () => {
         <h2 className="heading reveal">Skills & Expertise</h2>
         
         <div className="skills-grid">
-          {/* Category 1 */}
+          {/* Category 1: Cybersecurity */}
           <div className="glass-card skill-category cat-cyber reveal">
             <div className="skill-header">
               <span className="skill-icon">🛡️</span>
               <h3 className="skill-title">Cybersecurity</h3>
             </div>
             <div className="skill-list">
-              {['Penetration Testing', 'Bug Bounty Hunting', 'Web & API Security', 'OSINT & Reconnaissance', 'Reverse Engineering', 'Smart Contract Auditing', 'Blockchain Security', 'Web3 Vulnerability Research', 'SQL Injection', 'XSS', 'CSRF', 'Authentication Bypass', 'Logic Flaws'].map(skill => (
-                <span key={skill} className="skill-tag">{skill}</span>
+              {[
+                { name: 'Penetration Testing', percent: 95 },
+                { name: 'Web App Security', percent: 92 },
+                { name: 'Smart Contract Sec', percent: 88 },
+                { name: 'OSINT & Recon', percent: 96 },
+                { name: 'Reverse Engineering', percent: 82 },
+                { name: 'CTF', percent: 90 }
+              ].map(skill => (
+                <div key={skill.name} className="skill-bar-wrap">
+                  <div className="skill-bar-header">
+                    <span>{skill.name}</span>
+                  </div>
+                  <div className="skill-bar-bg">
+                    <div className="skill-bar-fill" style={{ '--percent': `${skill.percent}%` }}></div>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
 
-          {/* Category 2 */}
+          {/* Category 2: Web3 & Blockchain */}
           <div className="glass-card skill-category cat-web3 reveal" style={{ animationDelay: '0.1s' }}>
             <div className="skill-header">
               <span className="skill-icon">⛓️</span>
               <h3 className="skill-title">Web3 & Blockchain</h3>
             </div>
             <div className="skill-list">
-              {['Smart Contract Security', 'DeFi Protocol Auditing', 'Access Control Vulnerabilities', 'Economic Attack Vectors', 'Reentrancy Bugs', 'Flash Loan Attacks', 'On-chain Data Analysis', 'EVM Internals'].map(skill => (
-                <span key={skill} className="skill-tag">{skill}</span>
+              {[
+                { name: 'Smart Contract Audits', percent: 94 },
+                { name: 'DeFi Protocol Sec', percent: 85 },
+                { name: 'Access Control Bugs', percent: 90 },
+                { name: 'Flash Loan Attacks', percent: 78 },
+                { name: 'EVM Internals', percent: 82 }
+              ].map(skill => (
+                <div key={skill.name} className="skill-bar-wrap">
+                  <div className="skill-bar-header">
+                    <span>{skill.name}</span>
+                  </div>
+                  <div className="skill-bar-bg">
+                    <div className="skill-bar-fill" style={{ '--percent': `${skill.percent}%` }}></div>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
 
-          {/* Category 3 */}
+          {/* Category 3: Development */}
           <div className="glass-card skill-category cat-dev reveal" style={{ animationDelay: '0.2s' }}>
             <div className="skill-header">
               <span className="skill-icon">💻</span>
               <h3 className="skill-title">Development</h3>
             </div>
             <div className="skill-list">
-              {['Python (Advanced)', 'JavaScript', 'Java', 'PHP', 'Bash', 'C++', 'React', 'Node.js', 'Flask', 'Full-Stack Web Development', 'REST API Development', 'Web Automation', 'Scraping', 'AI/ML Integration'].map(skill => (
-                <span key={skill} className="skill-tag">{skill}</span>
+              {[
+                { name: 'Python', percent: 96 },
+                { name: 'JavaScript', percent: 88 },
+                { name: 'React/Next.js', percent: 85 },
+                { name: 'Full Stack', percent: 80 },
+                { name: 'Bash/Automation', percent: 92 },
+                { name: 'PHP', percent: 80 },
+                { name: 'Java', percent: 75 },
+                { name: 'C++', percent: 70 },
+                { name: 'Rust', percent: 65 }
+              ].map(skill => (
+                <div key={skill.name} className="skill-bar-wrap">
+                  <div className="skill-bar-header">
+                    <span>{skill.name}</span>
+                  </div>
+                  <div className="skill-bar-bg">
+                    <div className="skill-bar-fill" style={{ '--percent': `${skill.percent}%` }}></div>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
 
-          {/* Category 4 */}
+          {/* Category 4: Writing */}
           <div className="glass-card skill-category cat-write reveal" style={{ animationDelay: '0.3s' }}>
             <div className="skill-header">
               <span className="skill-icon">✍️</span>
               <h3 className="skill-title">Writing</h3>
             </div>
             <div className="skill-list">
-              {['Sci-Fi World-Building', 'Thriller Plotting', 'Character Development', 'Narrative Architecture', 'Non-Fiction Reflective Writing', 'Literary Fiction', 'Self-Publishing', 'ISBN Management'].map(skill => (
-                <span key={skill} className="skill-tag">{skill}</span>
+              {[
+                { name: 'Sci-Fi Thriller', percent: 95 },
+                { name: 'World Building', percent: 92 },
+                { name: 'Character Dev', percent: 88 },
+                { name: 'Narrative Design', percent: 85 },
+                { name: 'Non-Fiction', percent: 80 }
+              ].map(skill => (
+                <div key={skill.name} className="skill-bar-wrap">
+                  <div className="skill-bar-header">
+                    <span>{skill.name}</span>
+                  </div>
+                  <div className="skill-bar-bg">
+                    <div className="skill-bar-fill" style={{ '--percent': `${skill.percent}%` }}></div>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
