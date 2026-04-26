@@ -794,6 +794,19 @@ html {
 .cat-web3 .skill-bar-fill { color: var(--neon-cyan); background: var(--neon-cyan); }
 .cat-dev .skill-bar-fill { color: var(--accent-warm); background: var(--accent-warm); }
 .cat-write .skill-bar-fill { color: var(--neon-purple); background: var(--neon-purple); }
+.cat-analytical .skill-bar-fill { color: #00c8ff; background: #00c8ff; }
+
+/* Analytical card — full width at bottom of 2-col grid */
+.skill-analytical-full {
+  grid-column: 1 / -1;
+}
+
+/* Horizontal two-column skill list inside full-width card */
+.skill-list-horizontal {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.2rem 3rem;
+}
 
 .skill-tag {
   font-family: var(--font-code);

@@ -5,7 +5,7 @@ const Skills = () => {
         <h2 className="heading reveal">Skills & Expertise</h2>
         
         <div className="skills-grid">
-          {/* Category 1: Cybersecurity */}
+          {/* Category 1: Cybersecurity & Security Engineering */}
           <div className="glass-card skill-category cat-cyber reveal">
             <div className="skill-header">
               <span className="skill-icon">
@@ -36,16 +36,16 @@ const Skills = () => {
                   <path d="M53 16 L58 16 L58 21" fill="none" stroke="#00e5a0" strokeWidth="0.8" strokeLinecap="round" opacity="0.5"></path>
                 </svg>
               </span>
-              <h3 className="skill-title">Cybersecurity</h3>
+              <h3 className="skill-title">Cybersecurity & Security Engineering</h3>
             </div>
             <div className="skill-list">
               {[
-                { name: 'Penetration Testing', percent: 95 },
-                { name: 'Web App Security', percent: 92 },
-                { name: 'Smart Contract Sec', percent: 88 },
-                { name: 'OSINT & Recon', percent: 96 },
-                { name: 'Reverse Engineering', percent: 82 },
-                { name: 'CTF', percent: 90 }
+                { name: 'Web App Security Testing (OWASP)', percent: 93 },
+                { name: 'Vulnerability Discovery & Analysis', percent: 91 },
+                { name: 'Recon & Attack Surface Mapping', percent: 96 },
+                { name: 'API Security Testing', percent: 88 },
+                { name: 'Security Reporting & Risk Assessment', percent: 85 },
+                { name: 'Automation for Security Scanning', percent: 90 },
               ].map(skill => (
                 <div key={skill.name} className="skill-bar-wrap">
                   <div className="skill-bar-header">
@@ -129,22 +129,19 @@ const Skills = () => {
                   <line x1="14" y1="52" x2="26" y2="52" stroke="#ffb347" strokeWidth="1.2" strokeLinecap="round" opacity="0.35"></line>
                   <rect x="27" y="49.5" width="4" height="5" rx="0.5" fill="#ffb347" opacity="0.7"></rect>
                   <circle cx="57" cy="18" r="0.8" fill="#ffb347" opacity="0.4"></circle>
-                  <circle cx="57" cy="18" r="0.8" fill="#ffb347" opacity="0.4"></circle>
                 </svg>
               </span>
               <h3 className="skill-title">Development</h3>
             </div>
             <div className="skill-list">
               {[
-                { name: 'Python', percent: 96 },
-                { name: 'JavaScript', percent: 88 },
-                { name: 'React/Next.js', percent: 85 },
-                { name: 'Full Stack', percent: 80 },
-                { name: 'Bash/Automation', percent: 92 },
-                { name: 'PHP', percent: 80 },
-                { name: 'Java', percent: 75 },
-                { name: 'C++', percent: 70 },
-                { name: 'Rust', percent: 65 }
+                { name: 'Backend Dev (Python, Flask)', percent: 92 },
+                { name: 'REST API Design & Integration', percent: 88 },
+                { name: 'Automation & Scripting', percent: 94 },
+                { name: 'System Design & Architecture', percent: 82 },
+                { name: 'Firebase & Real-time Systems', percent: 79 },
+                { name: 'CLI Tool Development', percent: 90 },
+                { name: 'AI/ML Integration', percent: 76 },
               ].map(skill => (
                 <div key={skill.name} className="skill-bar-wrap">
                   <div className="skill-bar-header">
@@ -193,6 +190,69 @@ const Skills = () => {
                 { name: 'Character Dev', percent: 88 },
                 { name: 'Narrative Design', percent: 85 },
                 { name: 'Non-Fiction', percent: 80 }
+              ].map(skill => (
+                <div key={skill.name} className="skill-bar-wrap">
+                  <div className="skill-bar-header">
+                    <span>{skill.name}</span>
+                  </div>
+                  <div className="skill-bar-bg">
+                    <div className="skill-bar-fill" style={{ '--percent': `${skill.percent}%` }}></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Category 5: Analytical & Problem-Solving — spans full width */}
+          <div className="glass-card skill-category cat-analytical reveal skill-analytical-full" style={{ animationDelay: '0.4s' }}>
+            <div className="skill-header">
+              <span className="skill-icon">
+                {/* Brain / neural network icon — cyan theme */}
+                <svg width="40" height="40" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <filter id="glow-cyan">
+                      <feGaussianBlur stdDeviation="1.5" result="blur"></feGaussianBlur>
+                      <feMerge><feMergeNode in="blur"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge>
+                    </filter>
+                  </defs>
+                  {/* Outer brain outline (simplified left + right hemispheres) */}
+                  <path d="M36 62 Q20 60 14 50 Q6 40 10 28 Q14 16 24 13 Q30 11 36 14" fill="none" stroke="#00c8ff" strokeWidth="1.3" strokeLinecap="round" opacity="0.6"></path>
+                  <path d="M36 62 Q52 60 58 50 Q66 40 62 28 Q58 16 48 13 Q42 11 36 14" fill="none" stroke="#00c8ff" strokeWidth="1.3" strokeLinecap="round" opacity="0.6"></path>
+                  {/* Spine / center divider */}
+                  <line x1="36" y1="14" x2="36" y2="62" stroke="#00c8ff" strokeWidth="0.8" strokeDasharray="2 3" opacity="0.3"></line>
+                  {/* Neural node connections */}
+                  <circle cx="22" cy="28" r="2.5" fill="#00c8ff" opacity="0.8" filter="url(#glow-cyan)"></circle>
+                  <circle cx="18" cy="42" r="2" fill="#00c8ff" opacity="0.6"></circle>
+                  <circle cx="30" cy="22" r="2" fill="#00c8ff" opacity="0.7"></circle>
+                  <circle cx="36" cy="36" r="3" fill="#00c8ff" opacity="0.9" filter="url(#glow-cyan)"></circle>
+                  <circle cx="42" cy="22" r="2" fill="#00c8ff" opacity="0.7"></circle>
+                  <circle cx="50" cy="28" r="2.5" fill="#00c8ff" opacity="0.8" filter="url(#glow-cyan)"></circle>
+                  <circle cx="54" cy="42" r="2" fill="#00c8ff" opacity="0.6"></circle>
+                  <circle cx="28" cy="50" r="1.8" fill="#00c8ff" opacity="0.5"></circle>
+                  <circle cx="44" cy="50" r="1.8" fill="#00c8ff" opacity="0.5"></circle>
+                  {/* Synaptic connections */}
+                  <line x1="22" y1="28" x2="30" y2="22" stroke="#00c8ff" strokeWidth="0.8" opacity="0.4"></line>
+                  <line x1="30" y1="22" x2="36" y2="36" stroke="#00c8ff" strokeWidth="0.8" opacity="0.4"></line>
+                  <line x1="22" y1="28" x2="36" y2="36" stroke="#00c8ff" strokeWidth="0.8" opacity="0.3"></line>
+                  <line x1="22" y1="28" x2="18" y2="42" stroke="#00c8ff" strokeWidth="0.8" opacity="0.35"></line>
+                  <line x1="18" y1="42" x2="28" y2="50" stroke="#00c8ff" strokeWidth="0.8" opacity="0.3"></line>
+                  <line x1="42" y1="22" x2="50" y2="28" stroke="#00c8ff" strokeWidth="0.8" opacity="0.4"></line>
+                  <line x1="50" y1="28" x2="36" y2="36" stroke="#00c8ff" strokeWidth="0.8" opacity="0.4"></line>
+                  <line x1="50" y1="28" x2="54" y2="42" stroke="#00c8ff" strokeWidth="0.8" opacity="0.35"></line>
+                  <line x1="54" y1="42" x2="44" y2="50" stroke="#00c8ff" strokeWidth="0.8" opacity="0.3"></line>
+                  <line x1="28" y1="50" x2="36" y2="36" stroke="#00c8ff" strokeWidth="0.8" opacity="0.3"></line>
+                  <line x1="44" y1="50" x2="36" y2="36" stroke="#00c8ff" strokeWidth="0.8" opacity="0.3"></line>
+                </svg>
+              </span>
+              <h3 className="skill-title">Analytical & Problem-Solving</h3>
+            </div>
+            <div className="skill-list skill-list-horizontal">
+              {[
+                { name: 'System-Level Thinking & Decomposition', percent: 93 },
+                { name: 'Debugging Complex Systems', percent: 90 },
+                { name: 'Performance & Logic Optimization', percent: 87 },
+                { name: 'Reverse Engineering (Basic–Intermediate)', percent: 82 },
+                { name: 'Research-Driven Development', percent: 91 },
               ].map(skill => (
                 <div key={skill.name} className="skill-bar-wrap">
                   <div className="skill-bar-header">
