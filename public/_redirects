@@ -1,3 +1,0 @@
-# Netlify Redirects
-# Hash-based navigation (#about, #skills, etc.) works natively — no SPA catch-all needed.
-# Netlify auto-serves 404.html for unmatched routes.
