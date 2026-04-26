@@ -1,11 +1,11 @@
 # Salehin Ashfi Portfolio — robots.txt
-# https://salehinashf.netlify.app
+# https://salehinashfi.netlify.app
 
 User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://salehinashf.netlify.app/sitemap.xml
+Sitemap: https://salehinashfi.netlify.app/sitemap.xml
 
 # Crawl-delay (optional, be polite)
 Crawl-delay: 1
