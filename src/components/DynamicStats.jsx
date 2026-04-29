@@ -110,18 +110,12 @@ const DynamicStats = () => {
             </div>
 
             <div className="gh-perfect-container">
-              <picture>
-                <source
-                  media="(max-width: 600px)"
-                  srcSet="https://streak-stats.demolab.com/?user=ashfiexe&theme=radical&hide_border=true"
-                />
-                <img
-                  src="https://ghchart.rshah.org/00d4ff/AsHfIEXE"
-                  alt="GitHub contributions graph"
-                  className="gh-perfect-img"
-                  loading="lazy"
-                />
-              </picture>
+              <img
+                src="https://ghchart.rshah.org/00d4ff/AsHfIEXE"
+                alt="GitHub contributions graph"
+                className="gh-perfect-img"
+                loading="lazy"
+              />
             </div>
 
             <div className="gh-dynamic-stats-container" style={{ marginTop: '1.5rem', display: 'flex', justifyContent: 'center', width: '100%' }}>
