@@ -124,21 +124,13 @@ const DynamicStats = () => {
               </picture>
             </div>
 
-            <div className="gh-perfect-meta">
-              <div className="gh-meta-item">
-                <span className="gh-meta-val">37</span>
-                <span className="gh-meta-lbl">Repositories</span>
-              </div>
-              <div className="gh-meta-divider"></div>
-              <div className="gh-meta-item">
-                <span className="gh-meta-val glow-cyan">123</span>
-                <span className="gh-meta-lbl">Total Stars</span>
-              </div>
-              <div className="gh-meta-divider"></div>
-              <div className="gh-meta-item">
-                <span className="gh-meta-val">AsHfIEXE</span>
-                <span className="gh-meta-lbl">Username</span>
-              </div>
+            <div className="gh-dynamic-stats-container" style={{ marginTop: '1.5rem', display: 'flex', justifyContent: 'center', width: '100%' }}>
+              <img 
+                src="https://github-readme-stats-sigma-five.vercel.app/api?username=ashfiexe&show_icons=true&theme=radical&count_private=false&hide_border=true&bg_color=00000000" 
+                alt="GitHub Dynamic Stats" 
+                style={{ width: '100%', maxWidth: '450px', height: 'auto', objectFit: 'contain' }}
+                loading="lazy"
+              />
             </div>
           </div>
 
