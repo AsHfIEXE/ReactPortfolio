@@ -4,15 +4,24 @@
 
 /* ---- RESET ---- */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { 
+  scroll-behavior: smooth; 
+  overflow-x: hidden;
+  width: 100%;
+}
 body {
   background: var(--bg-primary);
   color: var(--text-primary);
   font-family: var(--font-body);
   line-height: 1.6;
   overflow-x: hidden;
+  width: 100%;
   -webkit-font-smoothing: antialiased;
   cursor: none; 
+}
+#root {
+  width: 100%;
+  overflow-x: hidden;
 }
 a, button { cursor: none; }
 a { text-decoration: none; color: inherit; }
@@ -59,6 +68,7 @@ html {
 
 /* ---- LAYOUT ---- */
 .wrap {
+  width: 100%;
   max-width: var(--max-w);
   margin: 0 auto;
   padding: 0 2rem;

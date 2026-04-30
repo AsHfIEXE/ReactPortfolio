@@ -109,11 +109,12 @@ const DynamicStats = () => {
               <a href="https://github.com/AsHfIEXE" target="_blank" rel="noopener noreferrer" className="stat-link">View GitHub ↗</a>
             </div>
 
-            <div className="gh-perfect-container">
+            <div className="gh-perfect-container" style={{ width: '100%', overflowX: 'auto', paddingBottom: '10px' }}>
               <img
                 src="https://ghchart.rshah.org/00d4ff/AsHfIEXE"
                 alt="GitHub contributions graph"
                 className="gh-perfect-img"
+                style={{ minWidth: '700px', width: '100%', height: 'auto' }}
                 loading="lazy"
               />
             </div>
