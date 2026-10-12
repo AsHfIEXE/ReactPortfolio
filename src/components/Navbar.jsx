@@ -1,19 +1,21 @@
 import { useState, useEffect } from 'react';
+import ResumeMenu from './ResumeMenu';
+import RESUME from '../data/resume';
+
+const navLinks = [
+  { name: 'Home', href: '#hero', id: 'hero' },
+  { name: 'About', href: '#about', id: 'about' },
+  { name: 'Skills', href: '#skills', id: 'skills' },
+  { name: 'Recognition', href: '#recognition', id: 'recognition' },
+  { name: 'Projects', href: '#projects', id: 'projects' },
+  { name: 'Stats', href: '#stats', id: 'stats' },
+  { name: 'Contact', href: '#contact', id: 'contact' },
+];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
-
-  const navLinks = [
-    { name: 'Home', href: '#hero', id: 'hero' },
-    { name: 'About', href: '#about', id: 'about' },
-    { name: 'Skills', href: '#skills', id: 'skills' },
-    { name: 'Books', href: '#books', id: 'books' },
-    { name: 'Projects', href: '#projects', id: 'projects' },
-    { name: 'Stats', href: '#stats', id: 'stats' },
-    { name: 'Contact', href: '#contact', id: 'contact' }
-  ];
 
   useEffect(() => {
     let ticking = false;
@@ -87,6 +89,7 @@ const Navbar = () => {
           </div>
 
           <div className="nav-actions">
+            <ResumeMenu className="nav-resume" />
             <a href="#contact" className="btn btn-primary nav-hire-btn" style={{ padding: '10px 20px', fontSize: '0.9rem' }}>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: '16px', height: '16px', marginRight: '6px' }}>
                 <line x1="22" y1="2" x2="11" y2="13"></line>
@@ -120,6 +123,26 @@ const Navbar = () => {
               <span className="mobile-link-prefix">&gt;</span> {link.name}
             </a>
           ))}
+          <div className="mobile-resume-group">
+            <a
+              className="mobile-link"
+              href={RESUME.path}
+              download={RESUME.downloadName}
+              onClick={() => setIsOpen(false)}
+            >
+              <span className="mobile-link-prefix">&gt;</span> Download résumé
+            </a>
+            <a
+              className="mobile-link"
+              href={RESUME.path}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsOpen(false)}
+            >
+              <span className="mobile-link-prefix">&gt;</span> Read résumé online
+            </a>
+          </div>
+
           <a href="#contact" className="btn btn-primary" style={{ marginTop: '2rem', width: '100%' }} onClick={() => setIsOpen(false)}>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: '20px', height: '20px', marginRight: '8px' }}>
               <line x1="22" y1="2" x2="11" y2="13"></line>

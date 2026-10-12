@@ -2,6 +2,11 @@ import { useEffect } from 'react';
 
 const CustomCursor = () => {
   useEffect(() => {
+    const supportsCustomCursor = window.matchMedia('(pointer: fine)').matches
+      && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!supportsCustomCursor) return undefined;
+
     const dot = document.querySelector('.cursor-dot');
     const ring = document.querySelector('.cursor-ring');
     
@@ -10,6 +15,7 @@ const CustomCursor = () => {
     let mouseY = 0;
     let ringX = 0;
     let ringY = 0;
+    let animationFrameId;
     
     const onMouseMove = (e) => {
       mouseX = e.clientX;
@@ -20,6 +26,7 @@ const CustomCursor = () => {
         dot.style.left = `${mouseX}px`;
         dot.style.top = `${mouseY}px`;
       }
+      document.body.classList.add('custom-cursor-ready');
     };
     
     // Animation loop for the ring (lerp)
@@ -33,7 +40,7 @@ const CustomCursor = () => {
         ring.style.top = `${ringY}px`;
       }
       
-      requestAnimationFrame(render);
+      animationFrameId = requestAnimationFrame(render);
     };
     
     // Add hover states for interactive elements
@@ -53,31 +60,15 @@ const CustomCursor = () => {
     document.addEventListener('mouseover', handleMouseOver);
     document.addEventListener('mouseout', handleMouseOut);
     
-    // Mobile Touch Pulse Alternative
-    const handleTouchStart = (e) => {
-      const touch = e.touches[0];
-      const pulse = document.createElement('div');
-      pulse.className = 'touch-pulse';
-      pulse.style.left = `${touch.clientX}px`;
-      pulse.style.top = `${touch.clientY}px`;
-      
-      document.body.appendChild(pulse);
-      
-      setTimeout(() => {
-        pulse.remove();
-      }, 600);
-    };
-    
-    window.addEventListener('touchstart', handleTouchStart, { passive: true });
-
     // Start loop
-    requestAnimationFrame(render);
+    animationFrameId = requestAnimationFrame(render);
     
     return () => {
       window.removeEventListener('mousemove', onMouseMove);
       document.removeEventListener('mouseover', handleMouseOver);
       document.removeEventListener('mouseout', handleMouseOut);
-      window.removeEventListener('touchstart', handleTouchStart);
+      document.body.classList.remove('cursor-hover', 'custom-cursor-ready');
+      cancelAnimationFrame(animationFrameId);
     };
   }, []);
 

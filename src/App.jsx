@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import CustomCursor from './components/CustomCursor';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -13,9 +13,12 @@ import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 
 function App() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(
+    () => !window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+  );
   const [loadText, setLoadText] = useState("");
   const [showFloatingCTA, setShowFloatingCTA] = useState(false);
+  const consoleLogged = useRef(false);
 
   useEffect(() => {
     // Scroll observer for reveal animations
@@ -35,17 +38,20 @@ function App() {
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          if (window.scrollY > 300) {
-            setShowFloatingCTA(true);
-          } else {
-            setShowFloatingCTA(false);
-          }
+          const recognition = document.getElementById('recognition');
+          const recognitionBounds = recognition?.getBoundingClientRect();
+          const recognitionIsVisible = recognitionBounds
+            && recognitionBounds.top < window.innerHeight
+            && recognitionBounds.bottom > 0;
+
+          setShowFloatingCTA(window.scrollY > 300 && !recognitionIsVisible);
           ticking = false;
         });
         ticking = true;
       }
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
 
     return () => {
       revealElements.forEach(el => observer.unobserve(el));
@@ -54,6 +60,8 @@ function App() {
   }, [loading]); // Re-run when loading finishes
 
   useEffect(() => {
+    if (!loading) return undefined;
+
     // Terminal boot sequence
     const sequence = [
       "> Initializing secure connection...",
@@ -65,6 +73,7 @@ function App() {
     let currentLine = 0;
     let currentChar = 0;
     let currentText = "";
+    let timeoutId;
 
     const typeWriter = () => {
       if (currentLine < sequence.length) {
@@ -72,30 +81,29 @@ function App() {
           currentText += sequence[currentLine].charAt(currentChar);
           setLoadText(currentText);
           currentChar++;
-          setTimeout(typeWriter, 20); // typing speed
+          timeoutId = setTimeout(typeWriter, 20); // typing speed
         } else {
           currentText += "\n";
           currentLine++;
           currentChar = 0;
-          setTimeout(typeWriter, 400); // pause between lines
+          timeoutId = setTimeout(typeWriter, 400); // pause between lines
         }
       } else {
-        setTimeout(() => setLoading(false), 500); // fade out
+        timeoutId = setTimeout(() => setLoading(false), 500); // fade out
       }
     };
 
     typeWriter();
-  }, []);
-
-let consoleLogged = false;
+    return () => clearTimeout(timeoutId);
+  }, [loading]);
 
   // Easter Eggs
   useEffect(() => {
     // 1. Developer Console Message
-    if (!consoleLogged) {
+    if (!consoleLogged.current) {
       console.log("%cWARNING: SYSTEM BREACH DETECTED", "color: #ff375f; font-size: 20px; font-weight: bold; font-family: monospace;");
       console.log("%cJust kidding! Welcome to the source code. \nIf you're reading this, you're either a fellow dev or hunting for bugs. \nFound a real vulnerability? Let's talk business via the Contact form. \n\n- Salehin Ashfi (Cybersecurity Researcher / Dev)", "color: #00ff88; font-size: 14px; font-family: monospace; line-height: 1.5;");
-      consoleLogged = true;
+      consoleLogged.current = true;
     }
 
     // 2. Secret Keystroke Combo
@@ -117,7 +125,7 @@ let consoleLogged = false;
       const foundWord = allWords.find(w => window.__cyberBuffer.includes(w));
 
       if (foundWord) {
-        let jokeMessage = "";
+        let jokeMessage;
         
         if (profanity.includes(foundWord)) {
           jokeMessage = `🤨 Really? You're typing "${foundWord}" on a professional portfolio? My firewall is judging you.`;

@@ -22,7 +22,7 @@ const DynamicStats = () => {
             hardSolved: data.hardSolved
           });
         }
-      } catch (e) {
+      } catch {
         console.error("Failed to fetch LeetCode stats, using fallback.");
       }
     };

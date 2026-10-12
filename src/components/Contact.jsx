@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { Download, ExternalLink, FileText } from 'lucide-react';
+import RESUME from '../data/resume';
 
 const Contact = () => {
   const [formState, setFormState] = useState('idle'); // idle, submitting, success
@@ -73,6 +75,33 @@ const Contact = () => {
               Response Time: ~1 hour average<br />
               Rate: $40/hour<br />
               Rating: ⭐ 5.0/5.0
+            </div>
+
+            <div className="contact-resume">
+              <div className="contact-resume-text">
+                <span className="contact-resume-label">
+                  <FileText size={15} strokeWidth={2.1} aria-hidden="true" />
+                  Résumé
+                </span>
+                <p className="contact-resume-hint">
+                  Full CV · {RESUME.pages} pages · {RESUME.sizeLabel}
+                </p>
+              </div>
+              <div className="contact-resume-actions">
+                <a className="btn btn-primary" href={RESUME.path} download={RESUME.downloadName}>
+                  <Download size={15} strokeWidth={2.2} aria-hidden="true" />
+                  Download
+                </a>
+                <a
+                  className="btn btn-ghost"
+                  href={RESUME.path}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <ExternalLink size={15} strokeWidth={2.2} aria-hidden="true" />
+                  View
+                </a>
+              </div>
             </div>
 
             <div className="social-grid">

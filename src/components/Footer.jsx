@@ -1,23 +1,20 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+
+const jokes = [
+  'No bugs were harmed in the making of this website. (They were brutally terminated.)',
+  "I tried to write a joke about UDP, but I wasn't sure if you'd get it.",
+  'Why do hackers prefer dark mode? Because light attracts bugs.',
+  "If my code works on the first try, I assume I've broken the space-time continuum.",
+  "Currently reading: 'How to exit Vim' by Anonymous.",
+  "There's no place like 127.0.0.1",
+  "My code is compiling. If you need me, I'll be writing my next sci-fi novel.",
+  "I don't need sleep, I need coffee and root access.",
+  'sudo make me a sandwich — and a CVE while you\'re at it.',
+  'Alert: Your curiosity has been logged. No bounty for this one.',
+];
 
 const Footer = () => {
-  const [joke, setJoke] = useState("");
-
-  useEffect(() => {
-    const jokes = [
-      "No bugs were harmed in the making of this website. (They were brutally terminated.)",
-      "I tried to write a joke about UDP, but I wasn't sure if you'd get it.",
-      "Why do hackers prefer dark mode? Because light attracts bugs.",
-      "If my code works on the first try, I assume I've broken the space-time continuum.",
-      "Currently reading: 'How to exit Vim' by Anonymous.",
-      "There's no place like 127.0.0.1",
-      "My code is compiling. If you need me, I'll be writing my next sci-fi novel.",
-      "I don't need sleep, I need coffee and root access.",
-      "sudo make me a sandwich — and a CVE while you're at it.",
-      "Alert: Your curiosity has been logged. No bounty for this one.",
-    ];
-    setJoke(jokes[Math.floor(Math.random() * jokes.length)]);
-  }, []);
+  const [joke] = useState(() => jokes[Math.floor(Math.random() * jokes.length)]);
 
   const socials = [
     { label: 'GitHub', href: 'https://github.com/AsHfIEXE', icon: (

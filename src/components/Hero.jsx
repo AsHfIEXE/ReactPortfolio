@@ -1,21 +1,29 @@
 import { useEffect, useRef, useState } from 'react';
+import { BookOpen, Download, ShieldCheck, Trophy, Zap } from 'lucide-react';
+import RESUME from '../data/resume';
+
+const roles = [
+  'Cybersecurity Researcher',
+  'Bug Bounty Hunter',
+  'Sci-Fi Author',
+  'Ethical Hacker',
+  'Full-Stack Developer',
+  'Web3 Security Researcher',
+];
 
 const Hero = () => {
   const canvasRef = useRef(null);
   const [glitchActive, setGlitchActive] = useState(false);
-  const [typingText, setTypingText] = useState("");
-
-  const roles = [
-    "Cybersecurity Researcher",
-    "Bug Bounty Hunter",
-    "Sci-Fi Author",
-    "Ethical Hacker",
-    "Full-Stack Developer",
-    "Web3 Security Researcher"
-  ];
+  const [typingText, setTypingText] = useState(() => (
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches ? roles[0] : ''
+  ));
 
   // Particle Canvas logic (Neural network effect as requested in prompt)
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return undefined;
+    }
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -139,6 +147,10 @@ const Hero = () => {
 
   // Glitch effect loop
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return undefined;
+    }
+
     const glitchInterval = setInterval(() => {
       setGlitchActive(true);
       setTimeout(() => setGlitchActive(false), 150);
@@ -148,6 +160,10 @@ const Hero = () => {
 
   // Typing effect loop
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return undefined;
+    }
+
     let currentRoleIndex = 0;
     let currentCharIndex = 0;
     let isDeleting = false;
@@ -182,7 +198,7 @@ const Hero = () => {
     return () => clearTimeout(typingTimer);
   }, []);
 
-  const [tapCount, setTapCount] = useState(0);
+  const [, setTapCount] = useState(0);
 
   const handleTitleTap = () => {
     setTapCount(prev => {
@@ -247,15 +263,23 @@ const Hero = () => {
         </p>
 
         <div className="hero-actions">
-          <a href="#projects" className="btn btn-primary">Explore My Work ↓</a>
-          <a href="#books" className="btn btn-ghost">Read My Books →</a>
+          <a href="#recognition" className="btn btn-primary">Explore recognition ↓</a>
+          <a href="#books" className="btn btn-ghost">Read my books →</a>
+          <a
+            href={RESUME.path}
+            download={RESUME.downloadName}
+            className="btn btn-ghost hero-resume-btn"
+          >
+            <Download size={16} strokeWidth={2.1} aria-hidden="true" />
+            Download résumé
+          </a>
         </div>
 
         <div className="hero-badges">
-          <div className="hero-badge">🛡️ 120+ Vulnerability Reports</div>
-          <div className="hero-badge">🏆 Google VRP #1577 Globally</div>
-          <div className="hero-badge">📚 5+ Published Books</div>
-          <div className="hero-badge">⚡ 3+ Years Experience</div>
+          <div className="hero-badge"><ShieldCheck size={16} strokeWidth={1.8} aria-hidden="true" /> 3 thanks received</div>
+          <div className="hero-badge"><Trophy size={16} strokeWidth={1.8} aria-hidden="true" /> BDSec CTF · 53 / 545</div>
+          <div className="hero-badge"><BookOpen size={16} strokeWidth={1.8} aria-hidden="true" /> 5+ published books</div>
+          <div className="hero-badge"><Zap size={16} strokeWidth={1.8} aria-hidden="true" /> 3+ years experience</div>
         </div>
       </div>
     </section>

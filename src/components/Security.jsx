@@ -1,5 +1,4 @@
-import React from 'react';
-import { ShieldAlert, Bug, TerminalSquare, Search } from 'lucide-react';
+import { Bug, TerminalSquare, Search } from 'lucide-react';
 
 const Security = () => {
   const tools = [
