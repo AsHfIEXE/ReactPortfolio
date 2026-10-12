@@ -16,6 +16,53 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- **Live LeetCode statistics** via the new `src/hooks/useLeetCodeStats.js`,
+  with the same cached, rate-limit-tolerant lifecycle as the GitHub data: a
+  10-minute `localStorage` cache, a timer refresh, revalidation when the tab
+  regains focus, and a manual refresh control.
+- The LeetCode card now also reports the total problem pool and the global rank.
+- The GitHub contributions card reports live public-repository and star totals.
+- A shared `formatRelative` helper (`src/utils/relativeTime.js`) for the
+  "synced 2m ago" readouts.
+
+### Changed
+
+- The live-sync readout pill is now shared by the Projects grid and the Numbers
+  card (`.sync-pill`, `.sync-dot`, `.sync-refresh`) instead of being defined for
+  the projects section alone.
+- The LeetCode profile link uses the canonical `leetcode.com/u/<user>/` form.
+- The boot sequence announces `ashfiexe` rather than `salehin_ashfi.exe`.
+
+### Fixed
+
+- **LeetCode statistics were stale and silently hardcoded.** The card called an
+  endpoint that answers 429 (and whose error response Cloudflare caches), so the
+  component fell back to numbers from an earlier era and logged a console error
+  on every load. It now reads a browser-verified mirror with a second mirror as
+  backup, validates the payload field by field (the mirrors answer HTTP 200 with
+  null members for an unknown user, so `response.ok` alone is not a valid test),
+  and falls back to figures verified against three independent sources. Reported
+  304 / 91 / 161 / 52; actually 570 solved, 176 / 317 / 77.
+- **Skill bars could render empty.** The fill width was driven by a reveal
+  class, so any missed intersection - for example a browser restoring a scroll
+  position past the skills section - left every bar at zero. The real width is
+  now the default value and the grow-in is an animation layered on top, so the
+  bars are correct even if the reveal never fires.
+- Reveal animations no longer leave whole sections invisible when the browser
+  restores a scroll position below them: content already scrolled past now
+  counts as revealed.
+- **The About terminal card left a large dead area.** It stretched to the prose
+  column's height (~1299px) while its content needed roughly 660px. Command
+  groups now spread evenly to fill the card and a prompt line with a blinking
+  caret sits at the bottom.
+- The About terminal styles are scoped to `.terminal-block`, so they no longer
+  leak into the boot loader, which reuses the `.terminal-body` class name.
+- The GitHub contribution card no longer renders the third-party
+  `github-readme-stats` error image ("Something went wrong" - it now requires a
+  GitHub token); it shows live totals from the existing repository data.
+
 ## [1.0.0] - 2026-10-12
 
 ### Added

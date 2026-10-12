@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { RefreshCw, Star } from 'lucide-react';
 import { GITHUB_USERNAME, getRepo, useGitHubRepos } from '../hooks/useGitHubRepos';
+import { formatRelative } from '../utils/relativeTime';
 
 const PROJECTS = [
   {
@@ -59,16 +60,6 @@ const SKELETON = { className: 'project-stars project-stars--skeleton' };
 const prefersReducedMotion = () =>
   typeof window !== 'undefined' &&
   window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-const formatRelative = (timestamp) => {
-  const seconds = Math.max(0, Math.round((Date.now() - timestamp) / 1000));
-  if (seconds < 45) return 'just now';
-  const minutes = Math.round(seconds / 60);
-  if (minutes < 60) return `${minutes}m ago`;
-  const hours = Math.round(minutes / 60);
-  if (hours < 24) return `${hours}h ago`;
-  return `${Math.round(hours / 24)}d ago`;
-};
 
 /**
  * Counts up when a star value changes, so an automatic refresh is visible
@@ -164,7 +155,7 @@ const Projects = () => {
       <div className="wrap">
         <div className="projects-header reveal">
           <h2 className="heading">Notable Projects</h2>
-          <p className={`projects-sync ${syncState}`}>
+          <p className={`sync-pill ${syncState}`}>
             <span className="sync-dot" aria-hidden="true" />
             <span className="sync-label">{syncLabel}</span>
             <button

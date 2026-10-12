@@ -42,6 +42,54 @@ const AnimatedCounter = ({ end, duration = 2000 }) => {
   return <span ref={counterRef}>{count}</span>;
 };
 
+// Grouped so the terminal body can space whole command/output blocks evenly
+// instead of pulling a command away from the output it produced.
+const terminalGroups = [
+  {
+    command: 'whoami',
+    output: ['Salehin Ashfi'],
+  },
+  {
+    command: 'cat location.txt',
+    output: ['Chandpur, Bangladesh 🇧🇩'],
+  },
+  {
+    command: 'cat background.txt',
+    output: ['Self-taught from age 15', 'Chose the hardest path and never looked back'],
+  },
+  {
+    command: 'cat specializations.txt',
+    output: [
+      'Ethical Hacking & Penetration Testing',
+      'Bug Bounty Hunting (Google VRP, HackerOne, etc.)',
+      'Web3 & Blockchain Security',
+      'Smart Contract Auditing',
+      'Full-Stack Development',
+      'Sci-Fi & Literary Fiction Writing',
+    ],
+  },
+  {
+    command: 'cat achievements.txt',
+    output: [
+      'Google VRP — 4 accepted vulnerabilities',
+      '#1577 on the Google Bug Hunters leaderboard',
+      '120+ reports across four bug bounty platforms',
+    ],
+  },
+  {
+    command: 'ls ~/stack',
+    output: ['Python   Flask    React    Docker', 'Bash     PHP      SQLite   Firebase'],
+  },
+  {
+    command: 'cat philosophy.txt',
+    output: [
+      '"A self-taught writer, hacker, and relentless creator.',
+      ' I write books, break systems ethically, build tools,',
+      ' and turn sleepless nights into cyber innovations."',
+    ],
+  },
+];
+
 const About = () => {
   return (
     <section id="about" className="section">
@@ -56,28 +104,17 @@ const About = () => {
               <div className="term-dot g"></div>
             </div>
             <div className="terminal-body">
-              <div className="term-cmd">whoami</div>
-              <div className="term-out">Salehin Ashfi</div>
-              
-              <div className="term-cmd">cat location.txt</div>
-              <div className="term-out">Chandpur, Bangladesh 🇧🇩</div>
-              
-              <div className="term-cmd">cat background.txt</div>
-              <div className="term-out">Self-taught from age 15</div>
-              <div className="term-out">Chose the hardest path and never looked back</div>
-              
-              <div className="term-cmd">cat specializations.txt</div>
-              <div className="term-out">Ethical Hacking & Penetration Testing</div>
-              <div className="term-out">Bug Bounty Hunting (Google VRP, HackerOne, etc.)</div>
-              <div className="term-out">Web3 & Blockchain Security</div>
-              <div className="term-out">Smart Contract Auditing</div>
-              <div className="term-out">Full-Stack Development</div>
-              <div className="term-out">Sci-Fi & Literary Fiction Writing</div>
-              
-              <div className="term-cmd">cat philosophy.txt</div>
-              <div className="term-out">"A self-taught writer, hacker, and relentless creator.</div>
-              <div className="term-out"> I write books, break systems ethically, build tools,</div>
-              <div className="term-out"> and turn sleepless nights into cyber innovations."</div>
+              {terminalGroups.map((group) => (
+                <div className="term-group" key={group.command}>
+                  <div className="term-cmd">{group.command}</div>
+                  {group.output.map((line) => (
+                    <div className="term-out" key={line}>{line}</div>
+                  ))}
+                </div>
+              ))}
+              <div className="term-prompt" aria-hidden="true">
+                <span className="term-caret">█</span>
+              </div>
             </div>
           </div>
           

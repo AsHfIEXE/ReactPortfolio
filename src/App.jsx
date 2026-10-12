@@ -65,7 +65,7 @@ function App() {
     // Terminal boot sequence
     const sequence = [
       "> Initializing secure connection...",
-      "> Loading profile: salehin_ashfi.exe",
+      "> Loading profile: ashfiexe",
       "> Decrypting assets... [████████████] 100%",
       "> ACCESS GRANTED. Welcome."
     ];

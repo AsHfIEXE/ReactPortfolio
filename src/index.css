@@ -730,17 +730,44 @@ body.custom-cursor-ready .cursor-ring {
 .term-dot.y { background: #ffbd2e; }
 .term-dot.g { background: #27c93f; }
 
-.terminal-body {
+/* Scoped to the About terminal so it cannot leak into the boot loader, which
+   reuses the .terminal-body class name. */
+.terminal-block .terminal-body {
+  display: flex;
+  flex: 1; /* fills space */
+  flex-direction: column;
+  gap: 1.4rem;
+  /* The prose column sets the row height; spreading whole command groups keeps
+     the card full instead of leaving a dead block under the last command. */
+  justify-content: space-between;
   padding: 24px;
   color: var(--neon-green);
   line-height: 1.6;
-  flex: 1; /* fills space */
 }
-.term-cmd { color: var(--text-secondary); margin-top: 1.5rem; }
-.term-cmd:first-child { margin-top: 0; }
+
+/* A command and its output stay together; only the gaps between groups stretch. */
+.term-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.term-cmd { color: var(--text-secondary); }
 .term-cmd::before { content: "$ "; color: var(--neon-purple); }
 .term-out { margin-left: 1.2rem; opacity: 0.9; }
 .term-out::before { content: "> "; color: var(--text-muted); }
+
+.term-prompt { display: flex; align-items: center; gap: 0.5rem; }
+.term-prompt::before { content: "$ "; color: var(--neon-purple); }
+.term-caret {
+  color: var(--neon-green);
+  animation: caret-blink 1.2s steps(2, start) infinite;
+}
+
+@keyframes caret-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
 
 .prose-section {
   font-size: 1.05rem;
@@ -854,16 +881,21 @@ body.custom-cursor-ready .cursor-ring {
 .skill-bar-fill {
   height: 100%;
   border-radius: 4px;
-  width: 0; /* Animated to var(--percent) */
-  transition: width 1.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  /* The real width is the default value, so a reveal that never fires can no
+     longer leave the bar blank. The grow-in below is decoration, not truth. */
+  width: var(--percent);
+  transform-origin: left center;
   box-shadow: 0 0 10px currentColor;
-  will-change: width;
-  transform: translateZ(0); /* Force hardware acceleration */
 }
 
 /* On Reveal */
 .reveal.active .skill-bar-fill {
-  width: var(--percent);
+  animation: skill-bar-grow 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@keyframes skill-bar-grow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
 }
 
 /* Category Colors */
@@ -1760,8 +1792,8 @@ body.custom-cursor-ready .cursor-ring {
   margin-bottom: 0;
 }
 
-/* Live-sync readout for the GitHub star counts. */
-.projects-sync {
+/* Live-sync readout shared by the Projects grid and the Numbers card. */
+.sync-pill {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
@@ -1783,19 +1815,19 @@ body.custom-cursor-ready .cursor-ring {
   background: var(--text-muted);
 }
 
-.projects-sync.is-live .sync-dot {
+.sync-pill.is-live .sync-dot {
   background: var(--neon-green);
   box-shadow: 0 0 8px rgba(0, 255, 136, 0.7);
   animation: sync-pulse 2.4s ease-in-out infinite;
 }
 
-.projects-sync.is-loading .sync-dot {
+.sync-pill.is-loading .sync-dot {
   background: var(--neon-cyan);
   box-shadow: 0 0 8px rgba(0, 212, 255, 0.6);
   animation: sync-pulse 1.2s ease-in-out infinite;
 }
 
-.projects-sync.is-offline .sync-dot {
+.sync-pill.is-offline .sync-dot {
   background: var(--accent-warm);
   box-shadow: 0 0 8px rgba(255, 107, 53, 0.6);
 }
@@ -2039,6 +2071,7 @@ body.custom-cursor-ready .cursor-ring {
 .stat-header {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 1rem;
 }
 
@@ -2135,6 +2168,60 @@ body.custom-cursor-ready .cursor-ring {
 .lc-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 .lc-label { font-family: var(--font-ui); font-size: 1rem; color: var(--text-primary); flex: 1; }
 .lc-val { font-family: var(--font-code); font-size: 1.1rem; font-weight: 700; }
+
+.lc-meta {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 0.25rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.lc-meta div { min-width: 0; }
+
+.lc-meta dt {
+  color: var(--text-muted);
+  font-family: var(--font-code);
+  font-size: 0.62rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.lc-meta dd {
+  margin-top: 0.3rem;
+  color: var(--text-primary);
+  font-family: var(--font-code);
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.gh-live-strip {
+  display: flex;
+  gap: 2.5rem;
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.gh-live-strip div { min-width: 0; }
+
+.gh-live-strip dt {
+  color: var(--text-muted);
+  font-family: var(--font-code);
+  font-size: 0.62rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.gh-live-strip dd {
+  margin-top: 0.3rem;
+  color: var(--text-primary);
+  font-family: var(--font-code);
+  font-size: 1.05rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
 
 /* GitHub Perfect Layout */
 .gh-perfect-container {
