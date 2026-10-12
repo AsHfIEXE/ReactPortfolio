@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { RefreshCw, Star } from 'lucide-react';
+import { BrandStar, BrandSync } from './BrandIcons';
 import { GITHUB_USERNAME, getRepo, useGitHubRepos } from '../hooks/useGitHubRepos';
 import { formatRelative } from '../utils/relativeTime';
 
@@ -117,7 +117,7 @@ const StarCount = ({ stars, isLive, isPending }) => {
       }
       aria-label={known ? `${stars} GitHub stars` : 'Star count unavailable'}
     >
-      <Star size={13} strokeWidth={2.2} aria-hidden="true" />
+      <BrandStar size={13} />
       <span className="project-stars-value">{known ? <AnimatedCount value={stars} /> : '—'}</span>
       {isLive && known && <span className="project-stars-pulse" aria-hidden="true" />}
     </span>
@@ -166,7 +166,7 @@ const Projects = () => {
               aria-label="Refresh repository statistics"
               title="Refresh repository statistics"
             >
-              <RefreshCw size={13} strokeWidth={2.4} aria-hidden="true" />
+              <BrandSync size={14} />
             </button>
           </p>
         </div>

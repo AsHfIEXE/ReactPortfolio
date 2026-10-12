@@ -1,12 +1,10 @@
 import {
-  Award,
   BadgeCheck,
   ExternalLink,
   Flag,
-  ShieldCheck,
-  Trophy,
   Users,
 } from 'lucide-react';
+import { BrandAward, BrandBrackets, BrandShield } from './BrandIcons';
 
 const programmes = [
   {
@@ -14,7 +12,7 @@ const programmes = [
     validClosed: '0 / 4',
     reputation: '22',
     rank: '5',
-    icon: ShieldCheck,
+    icon: BrandShield,
     accent: 'mint',
   },
   {
@@ -22,7 +20,7 @@ const programmes = [
     validClosed: '2 / 16',
     reputation: '4',
     rank: '—',
-    icon: BadgeCheck,
+    icon: BrandBrackets,
     accent: 'cyan',
   },
   {
@@ -31,7 +29,7 @@ const programmes = [
     validClosed: '1 / 1',
     reputation: '2',
     rank: '—',
-    icon: Award,
+    icon: BrandAward,
     accent: 'violet',
   },
 ];
@@ -75,7 +73,7 @@ const BugBounty = () => {
         <div className="recognition-heading reveal">
           <div>
             <p className="section-kicker">
-              <ShieldCheck size={16} strokeWidth={2} aria-hidden="true" />
+              <BrandShield size={16} />
               Evidence of practice
             </p>
             <h2 id="recognition-heading" className="heading">Research, recognition, and results.</h2>
@@ -138,7 +136,7 @@ const BugBounty = () => {
           <article className="ctf-card glass-card reveal">
             <div className="ctf-card-glow" aria-hidden="true" />
             <div className="ctf-icon" aria-hidden="true">
-              <Trophy size={24} strokeWidth={1.7} />
+              <BrandAward size={24} />
             </div>
             <p className="panel-eyebrow">Certificate of participation</p>
             <h3>BDSec CTF 2026</h3>

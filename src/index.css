@@ -2223,6 +2223,81 @@ body.custom-cursor-ready .cursor-ring {
   font-variant-numeric: tabular-nums;
 }
 
+.stat-header .stat-icon {
+  flex: 0 0 auto;
+  color: var(--neon-green);
+}
+
+/* Native repository activity chart. Replaces the hotlinked third-party
+   contribution heatmap so nothing here can fail with an error card. */
+.repo-activity { margin: 0; }
+
+.repo-activity-caption {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.repo-activity-title {
+  color: var(--text-primary);
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.repo-activity-meta {
+  color: var(--text-muted);
+  font-family: var(--font-code);
+  font-size: 0.7rem;
+}
+
+.repo-activity-chart {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 0.4rem;
+  height: 140px;
+}
+
+.repo-activity-col {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.repo-activity-track {
+  display: flex;
+  flex: 1;
+  align-items: flex-end;
+  overflow: hidden;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.repo-activity-bar {
+  width: 100%;
+  border-radius: 4px 4px 0 0;
+  background: linear-gradient(180deg, #00ffc3 0%, #00c484 100%);
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.25);
+  transition: height 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.repo-activity-bar.is-empty {
+  background: none;
+  box-shadow: none;
+}
+
+.repo-activity-label {
+  margin-top: 0.4rem;
+  color: var(--text-muted);
+  font-family: var(--font-code);
+  font-size: 0.6rem;
+  text-align: center;
+}
+
 /* GitHub Perfect Layout */
 .gh-perfect-container {
   width: 100%;

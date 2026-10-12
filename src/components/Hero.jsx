@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import { BookOpen, Download, ShieldCheck, Trophy, Zap } from 'lucide-react';
+import { Download } from 'lucide-react';
+import { BrandAward, BrandBolt, BrandBook, BrandShield } from './BrandIcons';
 import RESUME from '../data/resume';
 
 const roles = [
@@ -276,10 +277,10 @@ const Hero = () => {
         </div>
 
         <div className="hero-badges">
-          <div className="hero-badge"><ShieldCheck size={16} strokeWidth={1.8} aria-hidden="true" /> 3 thanks received</div>
-          <div className="hero-badge"><Trophy size={16} strokeWidth={1.8} aria-hidden="true" /> BDSec CTF · 53 / 545</div>
-          <div className="hero-badge"><BookOpen size={16} strokeWidth={1.8} aria-hidden="true" /> 5+ published books</div>
-          <div className="hero-badge"><Zap size={16} strokeWidth={1.8} aria-hidden="true" /> 3+ years experience</div>
+          <div className="hero-badge"><BrandShield size={16} /> 3 thanks received</div>
+          <div className="hero-badge"><BrandAward size={16} /> BDSec CTF · 53 / 545</div>
+          <div className="hero-badge"><BrandBook size={16} /> 5+ published books</div>
+          <div className="hero-badge"><BrandBolt size={16} /> 3+ years experience</div>
         </div>
       </div>
     </section>

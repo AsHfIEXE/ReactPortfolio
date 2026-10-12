@@ -26,6 +26,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - The GitHub contributions card reports live public-repository and star totals.
 - A shared `formatRelative` helper (`src/utils/relativeTime.js`) for the
   "synced 2m ago" readouts.
+- **A house icon set** (`src/components/BrandIcons.jsx`), drawn from the same
+  construction as the brand mark: straight angular strokes, square caps and
+  joins, a node dot at a stroke terminus, and short circuit traces. It replaces
+  generic glyphs and hotlinked artwork in the hero badges, the recognition
+  programme cards, the project star and refresh controls, and the stat card
+  headers. Profile and social links keep their real third-party logos, since
+  substituting our mark for someone else's logo would misrepresent that brand.
+- `RepoActivity` (`src/components/RepoActivity.jsx`): a twelve-month repository
+  push chart computed from the repository data already fetched, drawn as markup
+  and therefore impossible to break with a dead image host.
 
 ### Changed
 
@@ -34,6 +44,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   the projects section alone.
 - The LeetCode profile link uses the canonical `leetcode.com/u/<user>/` form.
 - The boot sequence announces `ashfiexe` rather than `salehin_ashfi.exe`.
+- The GitHub card is now titled "GitHub Activity" and renders its own chart, and
+  the Numbers section contains no third-party imagery at all - the contribution
+  heatmap and the Wikimedia LeetCode logo are both gone.
+- The navbar and hero "A" monogram are deliberately unchanged.
 
 ### Fixed
 
@@ -62,6 +76,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - The GitHub contribution card no longer renders the third-party
   `github-readme-stats` error image ("Something went wrong" - it now requires a
   GitHub token); it shows live totals from the existing repository data.
+- **The Numbers section can no longer be broken by a third-party image host.**
+  The remaining hotlinked contribution heatmap was the same class of defect as
+  the error card above, so it has been replaced with a chart drawn from data we
+  fetch ourselves. This is why the card is titled "GitHub Activity" rather than
+  claiming a contribution graph it no longer shows.
 
 ## [1.0.0] - 2026-10-12
 
